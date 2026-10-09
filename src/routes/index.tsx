@@ -1,24 +1,89 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import hero from "@/assets/hero.jpg";
+import { Card, Section, meta } from "@/components/site";
+import { events, news } from "@/lib/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers, mentoring, stories and ways to give back."),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const pillars = [
+  { to: "/directory", k: "01", t: "Member Directory", d: "Find classmates batch by batch, from 1986 onward." },
+  { to: "/careers", k: "02", t: "Careers & Mentoring", d: "Jobs, referrals, RA/TA and PhD openings, alumni mentors." },
+  { to: "/connect", k: "03", t: "Global Network", d: "Regional groups, clubs and chapters across five continents." },
+  { to: "/give", k: "04", t: "Give Back", d: "Donate, fund the picnic, or order the souvenir." },
+] as const;
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="relative min-h-[88vh] overflow-hidden bg-ink text-ink-foreground">
+        <img src={hero} alt="BUET campus at night" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-60" />
+        <div className="absolute inset-0 bg-fade" />
+        <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-20">
+          <p className="eyebrow">Est. 2026 · Dhaka 1000</p>
+          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.02] md:text-7xl">
+            Once CSE, <span className="text-primary">always</span> CSE.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association connects graduates across generations and continents — and back to the department that shaped us.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/connect" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">Join the network</Link>
+            <Link to="/about" className="rounded-md border border-ink-foreground/25 px-6 py-3 font-semibold hover:border-primary hover:text-primary">About BCA</Link>
+          </div>
+          <dl className="mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-ink-foreground/15 pt-6">
+            {[["34+", "Graduated batches"], ["11", "Interim committee"], ["5", "Continents"]].map(([n, l]) => (
+              <div key={l}><dt className="font-display text-3xl font-semibold text-primary">{n}</dt><dd className="mt-1 font-mono text-xs uppercase tracking-widest text-ink-foreground/60">{l}</dd></div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <Section eyebrow="What we do" title="Built for a lifetime of connection">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => (
+            <Link key={p.to} to={p.to}><Card kicker={p.k} title={p.t} cta="Explore">{p.d}</Card></Link>
+          ))}
+        </div>
+      </Section>
+
+      <section className="bg-surface">
+        <Section eyebrow="Latest" title="News & Events">
+          <div className="grid gap-10 lg:grid-cols-3">
+            <div className="grid gap-5 lg:col-span-2 md:grid-cols-2">
+              {news.slice(0, 2).map((n) => (
+                <Card key={n.title} kicker={`${n.tag} · ${n.date}`} title={n.title}>{n.body}</Card>
+              ))}
+            </div>
+            <div className="rounded-lg bg-ink p-6 text-ink-foreground">
+              <p className="eyebrow">Upcoming</p>
+              <ul className="mt-4 divide-y divide-ink-foreground/10">
+                {events.map((e) => (
+                  <li key={e.title} className="py-4">
+                    <p className="font-mono text-xs text-primary">{e.date}</p>
+                    <p className="mt-1 font-display font-semibold">{e.title}</p>
+                    <p className="text-sm text-ink-foreground/60">{e.place}</p>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/news" className="mt-2 inline-block font-mono text-xs uppercase tracking-widest text-primary">All events →</Link>
+            </div>
+          </div>
+        </Section>
+      </section>
+
+      <Section>
+        <div className="grid items-center gap-10 rounded-xl bg-ink p-10 text-ink-foreground md:grid-cols-2 md:p-14">
+          <div>
+            <p className="eyebrow">1st BCA Election 2026</p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Help build the voter list and alumni database.</h2>
+          </div>
+          <div>
+            <p className="text-ink-foreground/70">Representatives from every graduated batch are collecting alumni information. Submit yours so you can vote and stay connected.</p>
+            <Link to="/about" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground">Find your batch rep</Link>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }
