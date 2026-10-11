@@ -44,24 +44,25 @@
   --card-foreground: oklch(0.17 0.012 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.17 0.012 250);
-  --primary: oklch(0.78 0.14 170);
-  --primary-foreground: oklch(0.16 0.02 200);
+  --primary: #ac1e23;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.93 0.006 250);
   --secondary-foreground: oklch(0.2 0.012 250);
   --muted: oklch(0.93 0.006 250);
   --muted-foreground: oklch(0.48 0.02 250);
-  --accent: oklch(0.55 0.12 172);
+  --accent: #ac1e23;
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.88 0.008 250);
   --input: oklch(0.88 0.008 250);
-  --ring: oklch(0.78 0.14 170);
+  --ring: #ac1e23;
   --surface: oklch(0.95 0.005 250);
-  --ink: oklch(0.15 0.012 245);
+  --ink: #171717;
   --ink-foreground: oklch(0.95 0.005 250);
   --gradient-glow: radial-gradient(60% 60% at 70% 20%, color-mix(in oklab, var(--primary) 35%, transparent), transparent 70%);
-  --gradient-fade: linear-gradient(180deg, color-mix(in oklab, var(--ink) 30%, transparent), var(--ink));
+  --gradient-fade: linear-gradient(90deg, color-mix(in oklab, var(--ink) 88%, transparent), color-mix(in oklab, var(--ink) 15%, transparent));
+  --color-hero-accent: #f0b5b7;
 }
 
 @layer base {
@@ -71,13 +72,13 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
 }
 
 @utility eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--color-accent);
 }

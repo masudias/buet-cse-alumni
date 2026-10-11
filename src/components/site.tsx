@@ -1,36 +1,40 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { NAV, CONTACT_EMAIL } from "@/lib/site";
+import logo from "@/assets/logo3.png.asset.json";
+import campus from "@/assets/buet-ece.jpg.asset.json";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-foreground/10 bg-ink/90 text-ink-foreground backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
+    <header className="sticky top-0 z-50 border-b bg-card text-foreground">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
         <Link to="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary font-mono text-sm font-bold text-primary-foreground">BCA</span>
+          <span className="block h-11 w-11 shrink-0 overflow-hidden"><img src={logo.url} alt="BUET department emblem" className="h-11 w-auto max-w-none" /></span>
           <span className="leading-tight">
             <span className="block font-display text-sm font-semibold">BUET CSE Alumni</span>
-            <span className="block font-mono text-[10px] uppercase tracking-widest text-ink-foreground/60">Association</span>
+            <span className="block text-xs text-accent">Association</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 xl:flex">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="rounded px-3 py-2 text-sm text-ink-foreground/75 transition hover:text-primary" activeProps={{ className: "text-primary" }}>
+            <Link key={n.to} to={n.to} className="rounded px-2 py-2 text-sm text-muted-foreground transition hover:text-primary" activeProps={{ className: "text-primary" }}>
               {n.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-2 lg:flex">
-          <Link to="/portal" className="px-3 py-2 text-sm text-ink-foreground/80 hover:text-primary">Member Portal</Link>
+        <div className="hidden items-center gap-2 xl:flex">
+          <Link to="/portal" className="px-2 py-2 text-sm text-muted-foreground hover:text-primary">Member Portal</Link>
           <Link to="/give" className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90">Give</Link>
         </div>
-        <button className="font-mono text-xs uppercase tracking-widest lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu">{open ? "Close" : "Menu"}</button>
+        <Button variant="ghost" size="icon" className="xl:hidden" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
       </div>
       {open && (
-        <nav className="grid gap-1 border-t border-ink-foreground/10 px-5 py-4 lg:hidden">
+        <nav className="grid gap-1 border-t px-5 py-4 xl:hidden">
           {[...NAV, { to: "/portal", label: "Member Portal" }, { to: "/give", label: "Give" }].map((n) => (
-            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="py-2 text-ink-foreground/85">{n.label}</Link>
+            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="py-2 text-foreground">{n.label}</Link>
           ))}
         </nav>
       )}
@@ -43,9 +47,10 @@ export function Footer() {
     <footer className="bg-ink text-ink-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
+          <a href="https://cse.buet.ac.bd/" target="_blank" rel="noopener noreferrer" className="mb-6 inline-block max-w-full rounded bg-card p-2"><img src={logo.url} alt="Department of Computer Science and Engineering, BUET" width={579} height={80} className="w-96 max-w-full" /></a>
           <p className="font-display text-2xl font-semibold">BUET CSE Alumni Association</p>
           <p className="mt-3 max-w-md text-sm text-ink-foreground/60">Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka 1000.</p>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block font-mono text-sm text-primary">{CONTACT_EMAIL}</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block break-all text-sm text-hero-accent">{CONTACT_EMAIL}</a>
         </div>
         <div className="grid gap-2 text-sm text-ink-foreground/70">
           {NAV.slice(0, 4).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
@@ -63,11 +68,11 @@ export function Footer() {
 export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
   return (
     <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <div className="absolute inset-0 grid-lines" />
-      <div className="absolute inset-0 bg-glow" />
-      <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
-        <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-6xl">{title}</h1>
+      <img src={campus.url} alt="BUET ECE building" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-fade" />
+      <div className="relative mx-auto max-w-7xl px-5 py-14 md:py-20">
+        <p className="eyebrow text-hero-accent">{eyebrow}</p>
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
       </div>
     </section>

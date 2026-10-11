@@ -5,10 +5,9 @@ export const NAV = [
   { to: "/directory", label: "Directory" },
   { to: "/news", label: "News & Events" },
   { to: "/stories", label: "Stories" },
-  { to: "/connect", label: "Connect" },
+  { to: "/connect", label: "Community" },
   { to: "/careers", label: "Careers" },
   { to: "/research", label: "Research" },
-  { to: "/volunteer", label: "Volunteer" },
 ] as const;
 
 export const committee = [

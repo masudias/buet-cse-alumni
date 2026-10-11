@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep supplied public announcements in browser-safe content modules, separate from page layouts, so facts and source links remain consistent across pages.
+- Community owns chapters, volunteering and partnerships; Careers owns jobs, mentoring and benefits; Research owns academic openings. Keep /volunteer as a redirect to /connect to preserve existing links.
+- Import user-provided media through Lovable Assets pointers; retain a square raster favicon in public because browser icons require a directly served file.
+- Do not treat sample directory rows as verified alumni; replace them only after reading the supplied source lists and validating batch mappings.
