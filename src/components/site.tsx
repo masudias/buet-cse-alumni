@@ -70,11 +70,13 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition
   return (
     <section className="relative flex min-h-[340px] items-end overflow-hidden bg-ink text-ink-foreground md:min-h-[420px]">
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-6 pt-28 md:pb-8 md:pt-32">
-        <div className="max-w-2xl rounded-lg border border-border bg-surface/95 p-5 shadow-lg backdrop-blur-sm md:p-6">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-5 pt-24 md:pb-6 md:pt-28">
+        <div className="max-w-3xl rounded-lg border border-border bg-surface/85 p-4 shadow-lg backdrop-blur-md md:p-5">
           <p className="eyebrow text-hero-accent">{eyebrow}</p>
-          <h1 className="mt-2 text-2xl font-semibold md:text-3xl">{title}</h1>
-          <p className="mt-2 max-w-xl text-sm text-ink-foreground/70 md:text-base">{intro}</p>
+          <div className="mt-1 grid gap-x-8 gap-y-2 md:grid-cols-[auto_minmax(0,1fr)] md:items-baseline">
+            <h1 className="text-2xl font-semibold md:text-3xl">{title}</h1>
+            <p className="text-sm text-ink-foreground/70 md:text-base">{intro}</p>
+          </div>
         </div>
       </div>
     </section>
