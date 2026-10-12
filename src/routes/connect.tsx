@@ -1,32 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Card, PageHero, Section, meta } from "@/components/site";
-
-export const Route = createFileRoute("/connect")({
-  head: () => meta("Connect", "Register for the global alumni network, find a club or regional group, and ask for a referral."),
-  component: Connect,
-});
-
-const regions = ["Dhaka", "North America — East", "North America — West", "Canada", "United Kingdom & Europe", "Australia & NZ", "Middle East", "East & Southeast Asia"];
-
-function Connect() {
-  return (
-    <>
-      <PageHero eyebrow="Connect" title="Wherever you are, there's a BCA near you." intro="Register with the global alumni network, join a club or regional group, and help each other move forward." />
-      <Section>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <Card title="Global Alumni Network" cta="Register">Add yourself to the alumni database and voter list for the 1st BCA Election.</Card>
-          <Card title="Find a Club" cta="Explore">Programming, research, entrepreneurship, sports and cultural clubs.</Card>
-          <Card title="Regional Groups" cta="Join">Local chapters organizing meetups and family events.</Card>
-          <Card title="Ask for a Referral" cta="Request">Reach alumni at companies and universities you're targeting.</Card>
-        </div>
-      </Section>
-      <section className="bg-surface">
-        <Section eyebrow="Chapters" title="Regional groups">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {regions.map((r) => <div key={r} className="rounded-lg border bg-card px-5 py-4 font-display">{r}</div>)}
-          </div>
-        </Section>
-      </section>
-    </>
-  );
-}
+import { Card, Section, meta } from "@/components/site";
+import { REGISTER_URL, alumniEmail } from "@/lib/site";
+import group from "@/assets/cse-buet-2.jpg.asset.json";
+import faculty from "@/assets/buet-cse-7.jpg.asset.json";
+export const Route=createFileRoute('/connect')({head:()=>meta('Community','Join the BUET CSE global alumni network, find a club, request referrals and follow department updates.'),component:Connect});
+const actions=[{title:'Global Alumni Network',cta:'Register',d:'Stay connected with fellow alumni and contribute your information to the global network.',url:REGISTER_URL},{title:'Find a Club',cta:'Explore on Facebook',d:'Meet fellow BUETians and request to join the shared community group.',url:'https://www.facebook.com/share/g/1CJEZ5mW4T/'},{title:'Ask for a Referral',cta:'Request a referral',d:'Ask the association to connect you with a fellow alumnus in industry or academia.',url:alumniEmail('Request for a fellow alumni referral')},{title:'Get Updates from Department',cta:'Visit CSE, BUET',d:'News, notices, achievements and events from the Department of Computer Science and Engineering.',url:'https://cse.buet.ac.bd/'}];
+function Connect(){return <><section className="relative overflow-hidden"><img src={group.url} alt="A gathering of BUET CSE alumni and students" className="h-[400px] w-full object-cover md:h-[480px]"/><div className="absolute inset-0 bg-fade"/><div className="absolute inset-0 mx-auto flex max-w-7xl flex-col justify-center px-5"><p className="eyebrow">Community</p><h1 className="mt-4 max-w-xl text-4xl font-semibold md:text-5xl">Welcome to your community</h1><p className="mt-5 max-w-md text-lg">Old friends. New connections. A shared home in CSE.</p></div></section><Section><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{actions.map(a=><a key={a.title} href={a.url} target={a.url.startsWith('mailto:')?undefined:'_blank'} rel="noopener noreferrer"><Card title={a.title} cta={a.cta}>{a.d}</Card></a>)}</div></Section><section className="bg-editorial"><Section eyebrow="Around the department" title="Fan pages"><div className="grid gap-6 md:grid-cols-3">{[{t:'CSE, BUET',d:'Department community page',url:'https://www.facebook.com/csebuet'},{t:'IAC · CSE, BUET',d:'Industry–Academia Collaboration',url:'https://www.facebook.com/IAC.CSE.BUET'},{t:'CSE Memes',d:'Community humor & shared campus culture',url:'https://www.facebook.com/csememes'}].map(p=><a href={p.url} key={p.t} target="_blank" rel="noopener noreferrer" className="border-t border-accent pt-5"><h3 className="text-xl font-semibold">{p.t}</h3><p className="mt-2 text-sm text-muted-foreground">{p.d}</p><p className="mt-5 text-sm text-accent">View Facebook page ↗</p></a>)}</div></Section></section><Section eyebrow="Give your time" title="Build something together"><div className="grid items-start gap-8 md:grid-cols-2"><img src={faculty.url} alt="A student welcoming a CSE faculty member with flowers" className="w-full rounded-lg"/><div className="space-y-6"><a href={alumniEmail('Volunteer for a workshop or community program')} className="block"><h3 className="text-2xl font-semibold">Workshops & community programs</h3><p className="mt-3 text-muted-foreground">Offer a session, support student outreach or contribute to campus arts and history.</p><p className="mt-4 text-accent">Volunteer with BCA →</p></a><a href={alumniEmail('Strategic partnership referral — Government ICT opportunity')} className="block border-t pt-6"><h3 className="text-xl font-semibold">Government ICT partnership opportunity</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">A shared request seeks organizations with at least one similar government or corporate contract valued at BDT 5 Crore or above. Relevant expertise includes enterprise ICT, contact centers, CRM, systems integration, infrastructure, data centers and managed IT services. JV, consortium and strategic collaboration arrangements are welcome.</p><p className="mt-4 text-accent">Request a partnership introduction →</p></a></div></div></Section></>}

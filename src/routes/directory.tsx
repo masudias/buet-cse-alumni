@@ -1,49 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { MembersOnly, PageHero, Section, meta } from "@/components/site";
-import { batchReps, sampleMembers } from "@/lib/site";
-
-export const Route = createFileRoute("/directory")({
-  head: () => meta("Member Directory", "Find BUET CSE alumni by batch, name, organization and location."),
-  component: Directory,
-});
-
+import { Section, meta } from "@/components/site";
+import { Button } from "@/components/ui/button";
+import alumni from "@/lib/alumni.json";
+import { batchReps, alumniEmail, REGISTER_URL } from "@/lib/site";
+import group from "@/assets/cse-buet-1.jpg.asset.json";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+export const Route = createFileRoute("/directory")({ head: () => meta("Alumni Directory", "Browse 1,495 BUET CSE alumni in 35 HSC batches and 34 batch representatives, from the supplied alumni lists."), component: Directory });
+const batches = [...new Set(alumni.map(m => m.batch))].sort();
 function Directory() {
-  const [q, setQ] = useState("");
-  const [batch, setBatch] = useState<number | null>(null);
-  const list = useMemo(
-    () => sampleMembers.filter((m) => (!batch || m.batch === batch) && `${m.name} ${m.org} ${m.city} ${m.role}`.toLowerCase().includes(q.toLowerCase())),
-    [q, batch],
-  );
-  return (
-    <>
-      <PageHero eyebrow="Directory" title="Every batch. One network." intro="Browse alumni batch by batch with professional information. Full profiles, photos and email addresses are visible to signed-in members." />
-      <Section>
-        <div className="flex flex-col gap-4 md:flex-row">
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search name, company, city…" maxLength={100} className="flex-1 rounded-md border bg-card px-4 py-3 outline-none focus:border-accent" />
-        </div>
-        <div className="mt-5 flex flex-wrap gap-2">
-          <button onClick={() => setBatch(null)} className={`rounded-full border px-3 py-1 font-mono text-xs ${batch === null ? "border-ink bg-ink text-ink-foreground" : "bg-card"}`}>All</button>
-          {batchReps.map(([y]) => (
-            <button key={y} onClick={() => setBatch(y)} className={`rounded-full border px-3 py-1 font-mono text-xs ${batch === y ? "border-ink bg-ink text-ink-foreground" : "bg-card hover:border-accent"}`}>{y}</button>
-          ))}
-        </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((m) => (
-            <div key={m.name} className="flex gap-4 rounded-lg border bg-card p-5">
-              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-ink font-display font-semibold text-primary">{m.name.split(" ").map((p) => p[0]).join("")}</div>
-              <div>
-                <p className="font-display font-semibold">{m.name}</p>
-                <p className="text-sm">{m.role}, {m.org}</p>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">Batch {m.batch} · {m.city}</p>
-              </div>
-            </div>
-          ))}
-          {list.length === 0 && <p className="text-muted-foreground">No alumni match these filters yet.</p>}
-        </div>
-        <p className="mt-4 font-mono text-xs text-muted-foreground">Sample profiles shown for preview.</p>
-        <div className="mt-10"><MembersOnly>Sign in to see email addresses, photos and full professional profiles, and to update your own entry.</MembersOnly></div>
-      </Section>
-    </>
-  );
+ const [q,setQ]=useState(""); const [batch,setBatch]=useState(""); const [page,setPage]=useState(0); const [view,setView]=useState("alumni");
+ const list=useMemo(()=>alumni.filter(m=>(!batch||m.batch===Number(batch))&&`${m.name} ${m.nickname} ${m.batch}`.toLowerCase().includes(q.trim().toLowerCase())),[q,batch]);
+ const pages=Math.max(1,Math.ceil(list.length/60)); const current=Math.min(page,pages-1);
+ const rep=batchReps.find(([y])=>y===Number(batch));
+ return <><section className="border-b bg-surface"><div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-10 md:grid-cols-[1fr_320px]"><div><p className="eyebrow">People / BUET CSE</p><h1 className="mt-3 text-4xl font-semibold">Alumni directory</h1><p className="mt-4 text-muted-foreground">1,495 alumni · 35 batches · One community</p><p className="mt-3 text-sm text-muted-foreground">Batch years follow the HSC convention in the supplied list.</p></div><img src={group.url} alt="BUET CSE alumni together in a classroom" className="aspect-[3/2] w-full rounded-lg object-cover" /></div></section>
+ <Section><div className="flex gap-3 border-b pb-4"><Button variant={view==='alumni'?'default':'outline'} onClick={()=>setView('alumni')}>Alumni (1,495)</Button><Button variant={view==='reps'?'default':'outline'} onClick={()=>setView('reps')}>Batch representatives (34)</Button></div>
+ {view==='reps'?<><h2 className="mt-8 text-2xl font-semibold">Your batch representatives</h2><p className="mt-2 text-sm text-muted-foreground">Representative names from the batch-wise data collection spreadsheet. No representative is listed for 2020.</p><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{batchReps.map(([y,n])=><a href={alumniEmail(`Connect with Batch ${y} representative — ${n}`)} key={y} className="rounded-lg border bg-card p-5 hover:border-accent"><span className="font-mono text-sm text-accent">{y}</span><h3 className="mt-2 font-semibold">{n}</h3><p className="mt-3 text-sm text-accent">Request an introduction →</p></a>)}</div></>:<>
+ <div className="mt-6 flex flex-col gap-4 sm:flex-row"><label className="flex flex-1 items-center gap-3 rounded-md border bg-card px-4"><Search size={18} className="text-muted-foreground"/><input aria-label="Search alumni" value={q} onChange={e=>{setQ(e.target.value);setPage(0)}} placeholder="Search name, nickname or batch" className="w-full bg-transparent py-3 outline-none" /></label><select aria-label="HSC batch" value={batch} onChange={e=>{setBatch(e.target.value);setPage(0)}} className="rounded-md border bg-card px-4 py-3"><option value="">All batches</option>{batches.map(y=><option key={y} value={y}>{y} ({alumni.filter(m=>m.batch===y).length})</option>)}</select></div>
+ <div className="mt-5 flex flex-wrap justify-between gap-3 text-sm"><p aria-live="polite">{list.length.toLocaleString()} alumni {batch&&`· Batch ${batch}`}</p>{batch&&<p className="text-muted-foreground">Representative: {rep?.[1]??"Not listed in the supplied file"}</p>}</div>
+ <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{list.slice(current*60,(current+1)*60).map(m=><article key={m.id} className="flex gap-4 rounded-lg border bg-card p-5"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-surface text-sm font-semibold text-accent">{m.name.split(/\s+/).slice(0,2).map(p=>p[0]).join('')}</div><div className="min-w-0"><h3 className="break-words text-base font-semibold">{m.name}</h3>{m.nickname&&<p className="mt-1 break-words text-sm text-muted-foreground">{m.nickname}</p>}<p className="mt-2 font-mono text-xs text-muted-foreground">HSC batch {m.batch}</p><a href={alumniEmail(`Connect with fellow alumnus — ${m.name}, Batch ${m.batch}`)} className="mt-3 inline-block text-sm text-accent underline">Request an introduction</a></div></article>)}</div>{!list.length&&<p className="py-12 text-muted-foreground">No alumni match your search.</p>}
+ <div className="mt-8 flex items-center justify-center gap-5"><Button variant="outline" size="icon" aria-label="Previous page" disabled={current===0} onClick={()=>setPage(current-1)}><ChevronLeft/></Button><span className="text-sm">Page {current+1} of {pages}</span><Button variant="outline" size="icon" aria-label="Next page" disabled={current===pages-1} onClick={()=>setPage(current+1)}><ChevronRight/></Button></div>
+ <p className="mt-8 text-sm text-muted-foreground">Source: alumni_public_view.xlsx. Names, nicknames and HSC batch years are reproduced from the supplied public list; photos, professional details and personal emails were not included.</p><a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-accent underline">Register with the Global Alumni Network →</a></>}
+ </Section></>;
 }
