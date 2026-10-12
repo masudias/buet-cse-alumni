@@ -1,35 +1,34 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Card, PageHero, Section, meta } from "@/components/site";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { PageHero, Section, meta } from "@/components/site";
+import { newtonArticle } from "@/lib/newton-article";
+import { alumniEmail } from "@/lib/site";
 
 export const Route = createFileRoute("/stories")({
-  head: () => meta("Stories", "Blogs, travel writing, reunion memories and magazines from BUET CSE alumni."),
+  head: () => meta("Stories", "Essays and reunion stories from the BUET CSE alumni community, including Newton M A Hakim's BCA R&D article."),
   component: Stories,
 });
-
-const cats = [
-  { t: "Blogs", d: "Essays and reflections on tech, research and life after BUET." },
-  { t: "Travel", d: "Alumni journeys from Dhaka to Silicon Valley, Sydney and beyond." },
-  { t: "Reunions", d: "Photos and memories from batch reunions and picnics." },
-  { t: "Magazines", d: "Souvenir publications and the BCA annual magazine." },
-];
-const posts = [
-  { k: "Reunions · Batch 1995", t: "Thirty years later, back at the ECE building" },
-  { k: "Blogs · Batch 2008", t: "What competitive programming taught me about engineering leadership" },
-  { k: "Travel · Batch 2012", t: "A PhD across three continents" },
-];
 
 function Stories() {
   return (
     <>
-      <PageHero eyebrow="Stories" title="Our people, in their own words." intro="Share a blog post, travel story or reunion memory with the community." />
+      <PageHero eyebrow="Stories" title="Our people, in their own words." intro="Essays, ideas and reunion memories from the BUET CSE community." />
       <Section>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{cats.map((c) => <Card key={c.t} title={c.t} cta="Browse">{c.d}</Card>)}</div>
+        <div className="grid gap-5 md:grid-cols-3">
+          <a href="#rd" className="rounded-lg border bg-card p-6 transition hover:border-accent"><p className="eyebrow">Chapter one · Essay</p><h3 className="mt-2 text-xl font-semibold">{newtonArticle.title}</h3><p className="mt-2 text-sm text-muted-foreground">by {newtonArticle.author}</p></a>
+          <a href="https://buetalumni.co.uk" target="_blank" rel="noopener noreferrer" className="rounded-lg border bg-card p-6 transition hover:border-accent"><p className="eyebrow">Chapter two · Reunion</p><h3 className="mt-2 text-xl font-semibold">BUET Reunion UK 2026</h3><p className="mt-2 text-sm text-muted-foreground">Alumni and families gathered at Sindlesham Court, Wokingham →</p></a>
+          <a href={alumniEmail("Story submission for the BCA website")} className="rounded-lg border border-dashed bg-surface p-6 transition hover:border-accent"><p className="eyebrow">Your chapter</p><h3 className="mt-2 text-xl font-semibold">Share your story</h3><p className="mt-2 text-sm text-muted-foreground">Email a blog, travel story or reunion memory →</p></a>
+        </div>
       </Section>
-      <section className="bg-surface">
-        <Section eyebrow="Featured" title="Recent stories">
-          <div className="grid gap-5 md:grid-cols-3">{posts.map((p) => <Card key={p.t} kicker={p.k} title={p.t} cta="Read" />)}</div>
-          <p className="mt-4 font-mono text-xs text-muted-foreground">Sample stories shown for preview.</p>
-        </Section>
+      <section id="rd" className="scroll-mt-24 bg-surface">
+        <article lang="bn" className="mx-auto max-w-3xl px-5 py-16">
+          <p className="eyebrow">Essay · BCA R&D</p>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{newtonArticle.title}</h2>
+          <p className="mt-3 text-muted-foreground">{newtonArticle.author}</p>
+          <div className="mt-10 space-y-5 text-lg leading-loose first-letter:text-5xl">
+            {newtonArticle.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+          <Link to="/research" className="mt-10 inline-block font-semibold text-accent underline">Explore research openings →</Link>
+        </article>
       </section>
     </>
   );
