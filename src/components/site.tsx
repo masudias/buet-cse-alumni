@@ -65,12 +65,12 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", tall = false }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; tall?: boolean }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", tall = false, band = "aspect-[16/7]" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; tall?: boolean; band?: string }) {
   const alt = imageAlt ?? (image ? "Cover photo" : "BUET ECE building");
   if (tall) {
     return (
       <section className="bg-ink text-ink-foreground">
-        <img src={image ?? campus.url} alt={alt} className={`aspect-[16/7] w-full object-cover ${imagePosition}`} />
+        <img src={image ?? campus.url} alt={alt} className={`${band} w-full object-cover ${imagePosition}`} />
         <div className="mx-auto max-w-7xl px-5 py-12 md:py-16">
           <p className="eyebrow text-hero-accent">{eyebrow}</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>

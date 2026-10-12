@@ -12,7 +12,7 @@ export const Route = createFileRoute("/stories")({
 function Stories() {
   return (
     <>
-      <PageHero image={cover.url} imageAlt="BUET CSE alumni photographed in front of the department sign" eyebrow="Stories" title="Our people, in their own words." intro="Essays, ideas and reunion memories from the BUET CSE community." />
+      <PageHero tall band="aspect-[16/9]" imagePosition="object-center" image={cover.url} imageAlt="BUET CSE alumni photographed in front of the department sign" eyebrow="Stories" title="Our people, in their own words." intro="Essays, ideas and reunion memories from the BUET CSE community." />
       <Section>
         <div className="grid gap-5 md:grid-cols-3">
           <a href="#rd" className="rounded-lg border bg-card p-6 transition hover:border-accent"><p className="eyebrow">Chapter one · Essay</p><h3 className="mt-2 text-xl font-semibold">{newtonArticle.title}</h3><p className="mt-2 text-sm text-muted-foreground">by {newtonArticle.author}</p></a>
