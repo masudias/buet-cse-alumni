@@ -13,3 +13,4 @@
 - Community owns chapters, volunteering and partnerships; Careers owns jobs, mentoring and benefits; Research owns academic openings. Keep /volunteer as a redirect to /connect to preserve existing links.
 - Import user-provided media through Lovable Assets pointers; retain a square raster favicon in public because browser icons require a directly served file.
 - Do not treat sample directory rows as verified alumni; replace them only after reading the supplied source lists and validating batch mappings.
+- Keep the uploaded alumni and representative datasets separate, preserving source HSC batch values and missing representatives, because the spreadsheets have different coverage; never infer contact or professional details.

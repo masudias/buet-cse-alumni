@@ -1,4 +1,7 @@
-export const CONTACT_EMAIL = "info.buet.cse.alumni@gmail.com";
+import representatives from "./representatives.json";
+export const CONTACT_EMAIL = "info.bca.alumni@grad.cse.buet.ac.bd";
+export const REGISTER_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeTNKe_TQmM6e7Iwgu4NXZjbx6mWUmOgIXJHuU0fK1LpNvPEw/viewform?usp=header";
+export const alumniEmail = (subject: string) => `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
 
 export const NAV = [
   { to: "/about", label: "About" },
@@ -24,18 +27,7 @@ export const committee = [
   ["Farig Yousuf Sadeque, PhD", "Associate Professor, BRAC University, Bangladesh"],
 ] as const;
 
-export const batchReps: [number, string][] = [
-  [1986, "Latifur Rahman Khan"], [1987, "Badrul Munir Sarwar"], [1988, "Mustafa Kamal Hossain"],
-  [1989, "Shahnaz Afroz"], [1990, "Tamanna Islam"], [1991, "Ashraful Hannan"], [1992, "Eunus Ali"],
-  [1993, "Md Saroar Jahan (Likhon)"], [1994, "Ahsan Ali"], [1995, "Sohel Rahman"], [1996, "Ragib Hassan"],
-  [1997, "Farhan Habib"], [1998, "Mohammad Saifur Rahman"], [1999, "Anindya Iqbal"], [2000, "Ariful Azad"],
-  [2001, "Dewan M Ibtesham Shafi"], [2002, "Nafees Ahmed Kuntal"], [2003, "Syed Ishtiaque Ahmed"],
-  [2004, "Md Mainul Hassan"], [2005, "Proteek Chandan Roy"], [2006, "Sheikh Al Amin Sunoyon"],
-  [2007, "Maruf Morshed Khan"], [2008, "Sultan Ahmed"], [2009, "Md. Tarikul Islam Papon"],
-  [2010, "Ch. Md. Rakin Haider"], [2011, "Md Saiful Islam"], [2012, "Ishita Haque"], [2013, "Shahad Ishraq"],
-  [2014, "Md Toufikuzzaman"], [2015, "Mohammed Latif Siddiq"], [2016, "A.K.M. Mehedi Hasan"],
-  [2017, "Sheikh Azizul Hakim"], [2018, "Md. Asif Haider"], [2019, "Sadif Ahmed"],
-];
+export const batchReps = representatives.map(([batch, name]) => [Number(batch), String(name)] as [number, string]);
 
 export const objectives = [
   "Connect and unite alumni at home and abroad, fostering unity, friendship and loyalty.",

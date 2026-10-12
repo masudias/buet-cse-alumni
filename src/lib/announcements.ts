@@ -49,7 +49,8 @@ export const jobOpenings: Announcement[] = [
     title: "Junior, Mid & Senior Engineering Roles",
     label: "IQVIA · Dhaka · Graduates only",
     details: ["Junior roles: problem-solving, C# and/or Python proficiency, communication and technical fundamentals.", "Mid/senior roles: strong C#/Python, .NET, React or Angular, and software design fundamentals. Agentic AI experience and collaboration skills are valued.", "The shared announcement offers referrals through its original poster; no contact or application link was supplied."],
-    note: "Referral contact pending · Only graduates can apply",
+    url: "mailto:info.bca.alumni@grad.cse.buet.ac.bd?subject=Fellow%20alumni%20referral%20request%20%E2%80%94%20IQVIA", action: "Ask BCA about a referral",
+    note: "Only graduates can apply · BCA can help connect you; a referral is not guaranteed.",
   },
   {
     title: "Lead GCP Engineer",
@@ -109,6 +110,7 @@ export const pastEvents: (Announcement & { date: string; place: string })[] = [
     title: "When Software Artifacts Disagree",
     label: "BUET ACM Chapter · Past event", date: "8 August 2026 · 2:30 PM", place: "Graduate Seminar Room, ECE 503, CSE, BUET",
     details: ["Speaker: Zahin Wahab, PhD student in Computer Science at the University of British Columbia and Lecturer at BRAC University.", "The seminar examined how inconsistencies arise between software implementations, programming-language interpreters, code and documentation—even when a program produces plausible outputs rather than obvious crashes. Organized by BUET ACM Chapter, CSE, BUET."],
+    url: "https://www.facebook.com/csebuet", action: "Visit department announcements",
   },
   {
     title: "Generative AI & LLMs for Cybersecurity and Political Science",
