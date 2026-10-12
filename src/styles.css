@@ -64,6 +64,7 @@
   --gradient-fade: linear-gradient(90deg, color-mix(in oklab, var(--ink) 98%, transparent), color-mix(in oklab, var(--ink) 80%, transparent) 55%, color-mix(in oklab, var(--ink) 10%, transparent));
   --gradient-scrim: linear-gradient(to top, color-mix(in oklab, var(--ink) 99%, transparent) 12%, color-mix(in oklab, var(--ink) 88%, transparent) 38%, color-mix(in oklab, var(--ink) 35%, transparent) 68%, transparent);
   --gradient-scrim-strong: linear-gradient(to top, color-mix(in oklab, var(--ink) 99%, transparent) 22%, color-mix(in oklab, var(--ink) 94%, transparent) 45%, color-mix(in oklab, var(--ink) 55%, transparent) 74%, transparent);
+  --gradient-scrim-soft: linear-gradient(to top, color-mix(in oklab, var(--ink) 96%, transparent) 8%, color-mix(in oklab, var(--ink) 72%, transparent) 26%, color-mix(in oklab, var(--ink) 22%, transparent) 55%, transparent);
   --color-hero-accent: #ac1e23;
   --editorial: #eaf3f0;
   --color-editorial: var(--editorial);
@@ -91,6 +92,7 @@
 @utility bg-fade { background-image: var(--gradient-fade); }
 @utility bg-scrim { background-image: var(--gradient-scrim); }
 @utility bg-scrim-strong { background-image: var(--gradient-scrim-strong); }
+@utility bg-scrim-soft { background-image: var(--gradient-scrim-soft); }
 @utility grid-lines {
   background-image:
     linear-gradient(color-mix(in oklab, var(--ink-foreground) 6%, transparent) 1px, transparent 1px),
