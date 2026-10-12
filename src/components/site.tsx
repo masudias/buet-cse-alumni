@@ -65,25 +65,13 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", tall = false, band = "aspect-[16/7]" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; tall?: boolean; band?: string }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string }) {
   const alt = imageAlt ?? (image ? "Cover photo" : "BUET ECE building");
-  if (tall) {
-    return (
-      <section className="bg-ink text-ink-foreground">
-        <img src={image ?? campus.url} alt={alt} className={`${band} w-full object-cover ${imagePosition}`} />
-        <div className="mx-auto max-w-7xl px-5 py-12 md:py-16">
-          <p className="eyebrow text-hero-accent">{eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
-        </div>
-      </section>
-    );
-  }
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative flex min-h-[360px] items-center overflow-hidden bg-ink text-ink-foreground md:min-h-[440px]">
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
       <div className="absolute inset-0 bg-fade" />
-      <div className="relative mx-auto max-w-7xl px-5 py-14 md:py-20">
+      <div className="relative mx-auto w-full max-w-7xl px-5 py-14 md:py-16">
         <p className="eyebrow text-hero-accent">{eyebrow}</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
