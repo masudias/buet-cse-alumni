@@ -65,10 +65,10 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", scrim = "bg-scrim" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; scrim?: string }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", scrim = "bg-scrim", tall = false }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; scrim?: string; tall?: boolean }) {
   const alt = imageAlt ?? (image ? "Cover photo" : "BUET ECE building");
   return (
-    <section className="relative flex min-h-[340px] items-end overflow-hidden bg-ink text-ink-foreground md:min-h-[420px]">
+    <section className={`relative flex items-end overflow-hidden bg-ink text-ink-foreground ${tall ? "min-h-[460px] md:min-h-[560px]" : "min-h-[340px] md:min-h-[420px]"}`}>
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
       <div className={`absolute inset-0 ${scrim}`} />
       <div className="relative mx-auto w-full max-w-7xl px-5 pb-7 pt-28 md:pb-9 md:pt-32">
