@@ -1,4 +1,5 @@
 # Website update
+- [ ] Centre-crop the Research cover so the group is not cut off, and check it at desktop and the user's preview width.
 - [x] Replace black surfaces with soothing cream-white and give News, Stories and other pages distinct layouts.
 - [ ] Wire registration, referral email, club, department updates and fan-page links; remove regional groups.
 - [ ] Replace all sample postings and inactive actions with supplied content and real destinations.
