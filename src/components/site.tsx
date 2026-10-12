@@ -71,7 +71,7 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition
     <section className={`relative flex items-end overflow-hidden bg-ink text-ink-foreground ${tall ? "min-h-[460px] md:min-h-[560px]" : "min-h-[340px] md:min-h-[420px]"}`}>
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
       <div className={`absolute inset-0 ${scrim}`} />
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-7 pt-28 md:pb-9 md:pt-32">
+      <div className={`relative mx-auto w-full max-w-7xl px-5 pb-7 pt-28 md:pb-9 md:pt-32 ${glow ? "text-cream-glow" : ""}`}>
         <p className="eyebrow text-hero-accent">{eyebrow}</p>
         <h1 className="mt-2 max-w-3xl text-3xl font-semibold md:text-4xl">{title}</h1>
         <p className="mt-3 max-w-xl text-sm text-ink-foreground/75 md:text-base">{intro}</p>

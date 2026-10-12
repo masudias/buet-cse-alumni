@@ -95,6 +95,7 @@
 @utility bg-scrim-strong { background-image: var(--gradient-scrim-strong); }
 @utility bg-scrim-soft { background-image: var(--gradient-scrim-soft); }
 @utility bg-scrim-faint { background-image: var(--gradient-scrim-faint); }
+@utility text-cream-glow { text-shadow: 0 0 8px color-mix(in oklab, var(--ink) 95%, transparent), 0 0 22px color-mix(in oklab, var(--ink) 85%, transparent), 0 0 40px color-mix(in oklab, var(--ink) 70%, transparent); }
 @utility grid-lines {
   background-image:
     linear-gradient(color-mix(in oklab, var(--ink-foreground) 6%, transparent) 1px, transparent 1px),
