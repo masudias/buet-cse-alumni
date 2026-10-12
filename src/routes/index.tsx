@@ -30,7 +30,7 @@ function Index() {
   return (
     <>
       <section className="relative min-h-[88vh] overflow-hidden bg-ink text-ink-foreground">
-        <img src={hero} alt="BUET CSE students and alumni gathered in a lecture hall" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-60" />
+        <img src={hero} alt="BUET CSE students and alumni gathered in a lecture hall" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-90" />
         <div className="absolute inset-0 bg-fade" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-20">
           <p className="eyebrow">Est. 2026 · Dhaka 1000</p>
