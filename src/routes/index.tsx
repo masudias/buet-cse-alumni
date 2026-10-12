@@ -2,13 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroAsset from "@/assets/cse-buet-2.jpg.asset.json";
 import icpc from "@/assets/buet-cse-3.jpg.asset.json";
 import olympiad from "@/assets/buet-cse-4.jpeg.asset.json";
-import trophy from "@/assets/buet-cse-5.jpg.asset.json";
 import finals from "@/assets/buet-cse-10.jpg.asset.json";
 const hero = heroAsset.url;
 const gallery = [
-  [icpc.url, "BUET CSE team at an international programming contest", "On the world stage"],
+  [icpc.url, "BUET CSE team and guests on the ICPC Asia Dhaka Regional Contest stage", "On the world stage"],
   [olympiad.url, "Students holding a Blockchain Olympiad award", "Blockchain Olympiad winners"],
-  [trophy.url, "Programming contest team celebrating with a trophy", "Champions at home"],
   [finals.url, "BUET CSE team with their mentor at the ICPC World Finals", "World Finals, together"],
 ] as const;
 import { Card, Section, meta } from "@/components/site";
@@ -31,11 +29,11 @@ function Index() {
     <>
       <section className="relative min-h-[88vh] overflow-hidden bg-ink text-ink-foreground">
         <img src={hero} alt="BUET CSE students and alumni gathered in a lecture hall" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-90" />
-        <div className="absolute inset-0 bg-fade" />
+        <div className="absolute inset-0 bg-scrim" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-20">
           <p className="eyebrow">Est. 2026 · Dhaka 1000</p>
           <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.02] md:text-7xl">
-            Once CSE, <span className="text-primary">always</span> CSE.
+            Welcome to your <span className="text-primary">community</span>.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association connects graduates across generations and continents — and back to the department that shaped us.</p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -59,7 +57,7 @@ function Index() {
       </Section>
 
       <Section eyebrow="Pride of CSE" title="Our students and alumni, winning together">
-        <div id="pride" className="grid scroll-mt-32 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div id="pride" className="grid scroll-mt-32 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {gallery.map(([src, alt, cap]) => (
             <figure key={cap} className="overflow-hidden rounded-lg border bg-card">
               <img src={src} alt={alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
