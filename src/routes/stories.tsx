@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Section, meta } from "@/components/site";
 import { newtonArticle } from "@/lib/newton-article";
 import { alumniEmail } from "@/lib/site";
+import portrait from "@/assets/buet-cse-7.jpg.asset.json";
 
 export const Route = createFileRoute("/stories")({
   head: () => meta("Stories", "Essays and reunion stories from the BUET CSE alumni community, including Newton M A Hakim's BCA R&D article."),
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/stories")({
 function Stories() {
   return (
     <>
-      <PageHero eyebrow="Stories" title="Our people, in their own words." intro="Essays, ideas and reunion memories from the BUET CSE community." />
+      <PageHero image={portrait.url} eyebrow="Stories" title="Our people, in their own words." intro="Essays, ideas and reunion memories from the BUET CSE community." />
       <Section>
         <div className="grid gap-5 md:grid-cols-3">
           <a href="#rd" className="rounded-lg border bg-card p-6 transition hover:border-accent"><p className="eyebrow">Chapter one · Essay</p><h3 className="mt-2 text-xl font-semibold">{newtonArticle.title}</h3><p className="mt-2 text-sm text-muted-foreground">by {newtonArticle.author}</p></a>
