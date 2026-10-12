@@ -12,7 +12,7 @@ export const Route = createFileRoute("/news")({
 function News() {
   return (
     <>
-      <PageHero image={icpc2019.url} imageAlt="BUET CSE team at the 2019 ICPC World Finals" eyebrow="News & Events" title="What's happening across the network" intro="Talks, seminars, courses and reunions shared with BUET CSE alumni." />
+      <PageHero tall image={icpc2019.url} imageAlt="BUET CSE team at the 2019 ICPC World Finals" eyebrow="News & Events" title="What's happening across the network" intro="Talks, seminars, courses and reunions shared with BUET CSE alumni." />
       <Section eyebrow="Recent" title="Events">
         <div className="grid gap-5 md:grid-cols-2">
           {pastEvents.map((e) => (
