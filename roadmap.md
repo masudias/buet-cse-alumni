@@ -2,10 +2,10 @@
 - [x] Keep every page cover text-over-photo with one shared cream-fade treatment, sized a little larger than before.
 - [x] Centre-crop the Research cover so the group is not cut off, and check it at desktop and the user's preview width.
 - [x] Replace black surfaces with soothing cream-white and give News, Stories and other pages distinct layouts.
-- [ ] Wire registration, referral email, club, department updates and fan-page links; remove regional groups.
-- [ ] Replace all sample postings and inactive actions with supplied content and real destinations.
+- [x] Wire registration, referral email, club, department updates and fan-page links; remove regional groups.
+- [x] Replace all sample postings and inactive actions with supplied content and real destinations.
 - [x] Apply BUET palette, uploaded logo, favicon and photos.
-- [ ] Consolidate Connect/Careers/Volunteer without duplicate content.
+- [x] Consolidate Connect/Careers/Volunteer without duplicate content.
 - [x] Verify/import representatives and alumni from uploaded Excel files; no Google connection needed.
-- [ ] Publish supplied opportunities, events, benefits, Bengali article and reunion with source links.
-- [ ] Update About from constitution and verify pages, links and directory filters.
+- [x] Publish supplied opportunities, events, benefits, Bengali article and reunion with source links.
+- [x] Update About from constitution and verify pages, links and directory filters.
