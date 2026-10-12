@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, meta } from "@/components/site";
 import { AnnouncementCard } from "@/components/announcement";
 import { pastEvents } from "@/lib/announcements";
+import icpc2019 from "@/assets/buet-cse-9.jpeg.asset.json";
 
 export const Route = createFileRoute("/news")({
   head: () => meta("News & Events", "Talks, seminars, short courses and reunions shared with the BUET CSE alumni community."),
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/news")({
 function News() {
   return (
     <>
-      <PageHero eyebrow="News & Events" title="What's happening across the network." intro="Talks, seminars, courses and reunions shared with BUET CSE alumni." />
+      <PageHero image={icpc2019.url} eyebrow="News & Events" title="What's happening across the network." intro="Talks, seminars, courses and reunions shared with BUET CSE alumni." />
       <Section eyebrow="Recent" title="Events">
         <div className="grid gap-5 md:grid-cols-2">
           {pastEvents.map((e) => (
