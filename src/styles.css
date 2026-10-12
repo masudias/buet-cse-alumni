@@ -92,6 +92,7 @@
 @utility bg-fade { background-image: var(--gradient-fade); }
 @utility bg-scrim { background-image: var(--gradient-scrim); }
 @utility bg-scrim-strong { background-image: var(--gradient-scrim-strong); }
+@utility bg-scrim-soft { background-image: var(--gradient-scrim-soft); }
 @utility grid-lines {
   background-image:
     linear-gradient(color-mix(in oklab, var(--ink-foreground) 6%, transparent) 1px, transparent 1px),
