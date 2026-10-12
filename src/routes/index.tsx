@@ -3,13 +3,13 @@ import heroAsset from "@/assets/cse-buet-2.jpg.asset.json";
 import icpc from "@/assets/buet-cse-3.jpg.asset.json";
 import olympiad from "@/assets/buet-cse-4.jpeg.asset.json";
 import trophy from "@/assets/buet-cse-5.jpg.asset.json";
-import motto from "@/assets/buet-cse-8.png.asset.json";
+import finals from "@/assets/buet-cse-10.jpg.asset.json";
 const hero = heroAsset.url;
 const gallery = [
   [icpc.url, "BUET CSE team at an international programming contest", "On the world stage"],
   [olympiad.url, "Students holding a Blockchain Olympiad award", "Blockchain Olympiad winners"],
   [trophy.url, "Programming contest team celebrating with a trophy", "Champions at home"],
-  [motto.url, "We Create, We Simulate, We Emulate", "We create, we simulate"],
+  [finals.url, "BUET CSE team with their mentor at the ICPC World Finals", "World Finals, together"],
 ] as const;
 import { Card, Section, meta } from "@/components/site";
 import { pastEvents } from "@/lib/announcements";
