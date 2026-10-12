@@ -65,10 +65,10 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+export function PageHero({ eyebrow, title, intro, image }: { eyebrow: string; title: string; intro: string; image?: string }) {
   return (
     <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <img src={campus.url} alt="BUET ECE building" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={image ?? campus.url} alt={image ? "Cover photo" : "BUET ECE building"} className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-fade" />
       <div className="relative mx-auto max-w-7xl px-5 py-14 md:py-20">
         <p className="eyebrow text-hero-accent">{eyebrow}</p>
