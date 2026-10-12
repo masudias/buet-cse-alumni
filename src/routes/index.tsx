@@ -1,5 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
+import heroAsset from "@/assets/cse-buet-2.jpg.asset.json";
+import icpc from "@/assets/buet-cse-3.jpg.asset.json";
+import olympiad from "@/assets/buet-cse-4.jpeg.asset.json";
+import trophy from "@/assets/buet-cse-5.jpg.asset.json";
+import motto from "@/assets/buet-cse-8.png.asset.json";
+const hero = heroAsset.url;
+const gallery = [
+  [icpc.url, "BUET CSE team at an international programming contest", "On the world stage"],
+  [olympiad.url, "Students holding a Blockchain Olympiad award", "Blockchain Olympiad winners"],
+  [trophy.url, "Programming contest team celebrating with a trophy", "Champions at home"],
+  [motto.url, "We Create, We Simulate, We Emulate", "We create, we simulate"],
+] as const;
 import { Card, Section, meta } from "@/components/site";
 import { pastEvents } from "@/lib/announcements";
 
@@ -19,7 +30,7 @@ function Index() {
   return (
     <>
       <section className="relative min-h-[88vh] overflow-hidden bg-ink text-ink-foreground">
-        <img src={hero} alt="BUET campus at night" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-60" />
+        <img src={hero} alt="BUET CSE students and alumni gathered in a lecture hall" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover opacity-90" />
         <div className="absolute inset-0 bg-fade" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-20">
           <p className="eyebrow">Est. 2026 · Dhaka 1000</p>
@@ -43,6 +54,17 @@ function Index() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
             <Link key={p.to} to={p.to}><Card kicker={p.k} title={p.t} cta="Explore">{p.d}</Card></Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Pride of CSE" title="Our students and alumni, winning together">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {gallery.map(([src, alt, cap]) => (
+            <figure key={cap} className="overflow-hidden rounded-lg border bg-card">
+              <img src={src} alt={alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+              <figcaption className="p-4 font-display font-semibold">{cap}</figcaption>
+            </figure>
           ))}
         </div>
       </Section>
