@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Section, meta } from "@/components/site";
 import { newtonArticle } from "@/lib/newton-article";
 import { alumniEmail } from "@/lib/site";
-import portrait from "@/assets/cse-buet-2.jpg.asset.json";
+import cover from "@/assets/buet-cse-11.jpg.asset.json";
 
 export const Route = createFileRoute("/stories")({
   head: () => meta("Stories", "Essays and reunion stories from the BUET CSE alumni community, including Newton M A Hakim's BCA R&D article."),
