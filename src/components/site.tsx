@@ -65,7 +65,7 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", scrim = "bg-scrim", tall = false }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; scrim?: string; tall?: boolean }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", scrim = "bg-scrim", tall = false, glow = false }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; scrim?: string; tall?: boolean; glow?: boolean }) {
   const alt = imageAlt ?? (image ? "Cover photo" : "BUET ECE building");
   return (
     <section className={`relative flex items-end overflow-hidden bg-ink text-ink-foreground ${tall ? "min-h-[460px] md:min-h-[560px]" : "min-h-[340px] md:min-h-[420px]"}`}>
