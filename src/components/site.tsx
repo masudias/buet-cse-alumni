@@ -70,11 +70,13 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition
   return (
     <section className="relative flex min-h-[360px] items-center overflow-hidden bg-ink text-ink-foreground md:min-h-[440px]">
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
-      <div className="absolute inset-0 bg-fade" />
-      <div className="relative mx-auto w-full max-w-7xl px-5 py-14 md:py-16">
-        <p className="eyebrow text-hero-accent">{eyebrow}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
-        <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
+      <div className="absolute inset-0 bg-ink/20" />
+      <div className="relative mx-auto w-full max-w-7xl px-5 py-12 md:py-16">
+        <div className="max-w-xl rounded-lg border border-border bg-surface/95 p-6 shadow-lg backdrop-blur-sm md:p-8">
+          <p className="eyebrow text-hero-accent">{eyebrow}</p>
+          <h1 className="mt-3 text-3xl font-semibold md:text-4xl">{title}</h1>
+          <p className="mt-4 text-base text-ink-foreground/70 md:text-lg">{intro}</p>
+        </div>
       </div>
     </section>
   );
