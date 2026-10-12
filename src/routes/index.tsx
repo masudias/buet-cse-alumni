@@ -57,7 +57,7 @@ function Index() {
       </Section>
 
       <Section eyebrow="Pride of CSE" title="Our students and alumni, winning together">
-        <div id="pride" className="grid scroll-mt-32 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div id="pride" className="grid scroll-mt-32 gap-4 grid-cols-1 sm:grid-cols-3">
           {gallery.map(([src, alt, cap]) => (
             <figure key={cap} className="overflow-hidden rounded-lg border bg-card">
               <img src={src} alt={alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
