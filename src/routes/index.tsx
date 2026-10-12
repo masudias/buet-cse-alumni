@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import { Card, Section, meta } from "@/components/site";
-import { events, news } from "@/lib/site";
+import { pastEvents } from "@/lib/announcements";
 
 export const Route = createFileRoute("/")({
   head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers, mentoring, stories and ways to give back."),
@@ -51,14 +51,14 @@ function Index() {
         <Section eyebrow="Latest" title="News & Events">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="grid gap-5 lg:col-span-2 md:grid-cols-2">
-              {news.slice(0, 2).map((n) => (
-                <Card key={n.title} kicker={`${n.tag} · ${n.date}`} title={n.title}>{n.body}</Card>
+              {pastEvents.slice(0, 2).map((n) => (
+                <Card key={n.title} kicker={n.date} title={n.title}>{n.details[0]}</Card>
               ))}
             </div>
             <div className="rounded-lg bg-ink p-6 text-ink-foreground">
               <p className="eyebrow">Upcoming</p>
               <ul className="mt-4 divide-y divide-ink-foreground/10">
-                {events.map((e) => (
+                {pastEvents.slice(2).map((e) => (
                   <li key={e.title} className="py-4">
                     <p className="font-mono text-xs text-primary">{e.date}</p>
                     <p className="mt-1 font-display font-semibold">{e.title}</p>
