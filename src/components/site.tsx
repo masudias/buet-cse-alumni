@@ -65,12 +65,12 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", tall = false }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; tall?: boolean }) {
   return (
     <section className="relative overflow-hidden bg-ink text-ink-foreground">
       <img src={image ?? campus.url} alt={imageAlt ?? (image ? "Cover photo" : "BUET ECE building")} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
       <div className="absolute inset-0 bg-fade" />
-      <div className="relative mx-auto max-w-7xl px-5 py-14 md:py-20">
+      <div className={`relative mx-auto max-w-7xl px-5 ${tall ? "py-20 md:py-40" : "py-14 md:py-20"}`}>
         <p className="eyebrow text-hero-accent">{eyebrow}</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
