@@ -65,28 +65,16 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", tall = false, band = "aspect-[16/7]" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; tall?: boolean; band?: string }) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition = "object-top", scrim = "bg-scrim" }: { eyebrow: string; title: string; intro: string; image?: string; imageAlt?: string; imagePosition?: string; scrim?: string }) {
   const alt = imageAlt ?? (image ? "Cover photo" : "BUET ECE building");
-  if (tall) {
-    return (
-      <section className="bg-ink text-ink-foreground">
-        <img src={image ?? campus.url} alt={alt} className={`${band} w-full object-cover ${imagePosition}`} />
-        <div className="mx-auto max-w-7xl px-5 py-12 md:py-16">
-          <p className="eyebrow text-hero-accent">{eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
-        </div>
-      </section>
-    );
-  }
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative flex min-h-[340px] items-end overflow-hidden bg-ink text-ink-foreground md:min-h-[420px]">
       <img src={image ?? campus.url} alt={alt} className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`} />
-      <div className="absolute inset-0 bg-fade" />
-      <div className="relative mx-auto max-w-7xl px-5 py-14 md:py-20">
+      <div className={`absolute inset-0 ${scrim}`} />
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-7 pt-28 md:pb-9 md:pt-32">
         <p className="eyebrow text-hero-accent">{eyebrow}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">{title}</h1>
-        <p className="mt-5 max-w-2xl text-lg text-ink-foreground/70">{intro}</p>
+        <h1 className="mt-2 max-w-3xl text-3xl font-semibold md:text-4xl">{title}</h1>
+        <p className="mt-3 max-w-xl text-sm text-ink-foreground/75 md:text-base">{intro}</p>
       </div>
     </section>
   );
