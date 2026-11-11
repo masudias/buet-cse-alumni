@@ -1,4 +1,5 @@
 # Website update
+- [x] Rebalance the Community volunteer section to remove the empty right-hand space.
 - [x] Keep every page cover text-over-photo with one shared cream-fade treatment, sized a little larger than before.
 - [x] Centre-crop the Research cover so the group is not cut off, and check it at desktop and the user's preview width.
 - [x] Replace black surfaces with soothing cream-white and give News, Stories and other pages distinct layouts.
