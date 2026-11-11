@@ -14,8 +14,8 @@ export function Header() {
         <Link to="/" className="flex items-center gap-3">
           <span className="block h-11 w-11 shrink-0 overflow-hidden"><img src={logo.url} alt="BUET department emblem" className="h-11 w-auto max-w-none" /></span>
           <span className="leading-tight">
-            <span className="block font-display text-sm font-semibold">BUET CSE Alumni</span>
-            <span className="block text-xs text-accent">Association</span>
+            <span className="block font-display text-sm font-semibold">BUET CSE Alumni Association</span>
+            <span className="block text-xs font-semibold tracking-widest text-accent">BCA</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-1 xl:flex">
@@ -26,14 +26,13 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 xl:flex">
-          <Link to="/portal" className="px-2 py-2 text-sm text-muted-foreground hover:text-primary">Member Portal</Link>
-          <Link to="/give" className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90">Give</Link>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90">Contact BCA</a>
         </div>
         <Button variant="ghost" size="icon" className="xl:hidden" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
       </div>
       {open && (
         <nav className="grid gap-1 border-t px-5 py-4 xl:hidden">
-          {[...NAV, { to: "/portal", label: "Member Portal" }, { to: "/give", label: "Give" }].map((n) => (
+          {NAV.map((n) => (
             <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="py-2 text-foreground">{n.label}</Link>
           ))}
         </nav>
@@ -48,7 +47,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <a href="https://cse.buet.ac.bd/" target="_blank" rel="noopener noreferrer" className="mb-6 inline-block max-w-full rounded bg-card p-2"><img src={logo.url} alt="Department of Computer Science and Engineering, BUET" width={579} height={80} className="w-96 max-w-full" /></a>
-          <p className="font-display text-2xl font-semibold">BUET CSE Alumni Association</p>
+          <p className="font-display text-2xl font-semibold">BUET CSE Alumni Association (BCA)</p>
           <p className="mt-3 max-w-md text-sm text-ink-foreground/60">Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka 1000.</p>
           <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block break-all text-sm text-hero-accent">{CONTACT_EMAIL}</a>
         </div>
@@ -57,10 +56,9 @@ export function Footer() {
         </div>
         <div className="grid gap-2 text-sm text-ink-foreground/70">
           {NAV.slice(4).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
-          <Link to="/give" className="hover:text-primary">Give</Link>
         </div>
       </div>
-      <div className="border-t border-ink-foreground/10 px-5 py-6 text-center font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} BUET CSE Alumni Association</div>
+      <div className="border-t border-ink-foreground/10 px-5 py-6 text-center font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} BUET CSE Alumni Association (BCA)</div>
     </footer>
   );
 }
@@ -101,18 +99,8 @@ export function Card({ kicker, title, children, cta }: { kicker?: string; title:
   );
 }
 
-export function MembersOnly({ children }: { children: ReactNode }) {
-  return (
-    <div className="rounded-lg border border-dashed border-accent bg-surface p-6">
-      <p className="font-mono text-xs uppercase tracking-widest text-accent">Members only</p>
-      <div className="mt-2 text-sm text-muted-foreground">{children}</div>
-      <Link to="/portal" className="mt-4 inline-block rounded-md bg-ink px-4 py-2 text-sm font-semibold text-ink-foreground">Go to Member Portal</Link>
-    </div>
-  );
-}
-
 export function meta(title: string, description: string) {
-  const t = `${title} — BUET CSE Alumni Association`;
+  const t = `${title} — BUET CSE Alumni Association (BCA)`;
   return {
     meta: [
       { title: t },

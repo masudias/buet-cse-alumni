@@ -14,11 +14,9 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as DirectoryRouteImport } from './routes/directory'
-import { Route as GiveRouteImport } from './routes/give'
+import { Route as MeetingsRouteImport } from './routes/meetings'
 import { Route as NewsRouteImport } from './routes/news'
-import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ResearchRouteImport } from './routes/research'
-import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
 
 const IndexRoute = IndexRouteImport.update({
@@ -46,9 +44,9 @@ const DirectoryRoute = DirectoryRouteImport.update({
   path: '/directory',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GiveRoute = GiveRouteImport.update({
-  id: '/give',
-  path: '/give',
+const MeetingsRoute = MeetingsRouteImport.update({
+  id: '/meetings',
+  path: '/meetings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsRoute = NewsRouteImport.update({
@@ -56,19 +54,9 @@ const NewsRoute = NewsRouteImport.update({
   path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PortalRoute = PortalRouteImport.update({
-  id: '/portal',
-  path: '/portal',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StoriesRoute = StoriesRouteImport.update({
-  id: '/stories',
-  path: '/stories',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VolunteerRoute = VolunteerRouteImport.update({
@@ -83,11 +71,9 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
-  '/give': typeof GiveRoute
+  '/meetings': typeof MeetingsRoute
   '/news': typeof NewsRoute
-  '/portal': typeof PortalRoute
   '/research': typeof ResearchRoute
-  '/stories': typeof StoriesRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRoutesByTo {
@@ -96,11 +82,9 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
-  '/give': typeof GiveRoute
+  '/meetings': typeof MeetingsRoute
   '/news': typeof NewsRoute
-  '/portal': typeof PortalRoute
   '/research': typeof ResearchRoute
-  '/stories': typeof StoriesRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRoutesById {
@@ -110,11 +94,9 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
-  '/give': typeof GiveRoute
+  '/meetings': typeof MeetingsRoute
   '/news': typeof NewsRoute
-  '/portal': typeof PortalRoute
   '/research': typeof ResearchRoute
-  '/stories': typeof StoriesRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRouteTypes {
@@ -125,11 +107,9 @@ export interface FileRouteTypes {
     | '/careers'
     | '/connect'
     | '/directory'
-    | '/give'
+    | '/meetings'
     | '/news'
-    | '/portal'
     | '/research'
-    | '/stories'
     | '/volunteer'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -138,11 +118,9 @@ export interface FileRouteTypes {
     | '/careers'
     | '/connect'
     | '/directory'
-    | '/give'
+    | '/meetings'
     | '/news'
-    | '/portal'
     | '/research'
-    | '/stories'
     | '/volunteer'
   id:
     | '__root__'
@@ -151,11 +129,9 @@ export interface FileRouteTypes {
     | '/careers'
     | '/connect'
     | '/directory'
-    | '/give'
+    | '/meetings'
     | '/news'
-    | '/portal'
     | '/research'
-    | '/stories'
     | '/volunteer'
   fileRoutesById: FileRoutesById
 }
@@ -165,11 +141,9 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ConnectRoute: typeof ConnectRoute
   DirectoryRoute: typeof DirectoryRoute
-  GiveRoute: typeof GiveRoute
+  MeetingsRoute: typeof MeetingsRoute
   NewsRoute: typeof NewsRoute
-  PortalRoute: typeof PortalRoute
   ResearchRoute: typeof ResearchRoute
-  StoriesRoute: typeof StoriesRoute
   VolunteerRoute: typeof VolunteerRoute
 }
 
@@ -210,11 +184,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DirectoryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/give': {
-      id: '/give'
-      path: '/give'
-      fullPath: '/give'
-      preLoaderRoute: typeof GiveRouteImport
+    '/meetings': {
+      id: '/meetings'
+      path: '/meetings'
+      fullPath: '/meetings'
+      preLoaderRoute: typeof MeetingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/news': {
@@ -224,25 +198,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portal': {
-      id: '/portal'
-      path: '/portal'
-      fullPath: '/portal'
-      preLoaderRoute: typeof PortalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/research': {
       id: '/research'
       path: '/research'
       fullPath: '/research'
       preLoaderRoute: typeof ResearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stories': {
-      id: '/stories'
-      path: '/stories'
-      fullPath: '/stories'
-      preLoaderRoute: typeof StoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/volunteer': {
@@ -261,11 +221,9 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ConnectRoute: ConnectRoute,
   DirectoryRoute: DirectoryRoute,
-  GiveRoute: GiveRoute,
+  MeetingsRoute: MeetingsRoute,
   NewsRoute: NewsRoute,
-  PortalRoute: PortalRoute,
   ResearchRoute: ResearchRoute,
-  StoriesRoute: StoriesRoute,
   VolunteerRoute: VolunteerRoute,
 }
 export const routeTree = rootRouteImport

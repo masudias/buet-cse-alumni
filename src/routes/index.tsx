@@ -13,15 +13,15 @@ import { Card, Section, meta } from "@/components/site";
 import { pastEvents } from "@/lib/announcements";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers, mentoring, stories and ways to give back."),
+  head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers, research and Executive Committee meeting records of BCA."),
   component: Index,
 });
 
 const pillars = [
   { to: "/directory", k: "01", t: "Member Directory", d: "Find classmates batch by batch, from 1986 onward." },
   { to: "/careers", k: "02", t: "Careers & Mentoring", d: "Jobs, referrals, RA/TA and PhD openings, alumni mentors." },
-  { to: "/connect", k: "03", t: "Global Network", d: "Regional groups, clubs and chapters across five continents." },
-  { to: "/give", k: "04", t: "Give Back", d: "Donate, fund the picnic, or order the souvenir." },
+  { to: "/connect", k: "03", t: "Global Network", d: "Register, join the alumni group and follow department updates." },
+  { to: "/meetings", k: "04", t: "Meeting Records", d: "Agendas and minutes from the BCA Executive Committee." },
 ] as const;
 
 function Index() {
@@ -35,13 +35,13 @@ function Index() {
           <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.02] md:text-7xl">
             Welcome to your <span className="text-primary">community</span>.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association connects graduates across generations and continents — and back to the department that shaped us.</p>
+          <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association (BCA) connects graduates across generations and continents — and back to the department that shaped us.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/connect" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">Join the network</Link>
             <Link to="/about" className="rounded-md border border-ink-foreground/25 px-6 py-3 font-semibold hover:border-primary hover:text-primary">About BCA</Link>
           </div>
           <dl className="mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-ink-foreground/15 pt-6">
-            {[["34+", "Graduated batches"], ["11", "Interim committee"], ["5", "Continents"]].map(([n, l]) => (
+            {[["34+", "Graduated batches"], ["17", "Executive committee"], ["5", "Continents"]].map(([n, l]) => (
               <div key={l}><dt className="font-display text-3xl font-semibold text-primary">{n}</dt><dd className="mt-1 font-mono text-xs uppercase tracking-widest text-ink-foreground/60">{l}</dd></div>
             ))}
           </dl>

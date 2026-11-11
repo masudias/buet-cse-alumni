@@ -7,10 +7,30 @@ export const NAV = [
   { to: "/about", label: "About" },
   { to: "/directory", label: "Directory" },
   { to: "/news", label: "News & Events" },
-  { to: "/stories", label: "Stories" },
   { to: "/connect", label: "Community" },
   { to: "/careers", label: "Careers" },
   { to: "/research", label: "Research" },
+  { to: "/meetings", label: "Meetings" },
+] as const;
+
+export const executiveCommittee = [
+  ["President", "Mohammad Zulkernine"],
+  ["Vice President", "Badrul Munir Sarwar"],
+  ["General Secretary", "Khandakar Asif Hasan"],
+  ["Joint General Secretary", "Md. Mostofa Akbar"],
+  ["Secretary Finance / Treasurer", "Rezwana Reaz"],
+  ["Secretary Member Relations", "Rifat Shahriyar"],
+  ["Secretary Media and Publications", "Mahadi Rahman"],
+  ["Secretary Social Welfare", "Mohammad Riad Ashraf"],
+  ["Secretary Research and Development", "Muhammad Abdul Hakim Newton"],
+  ["The Head, CSE, BUET", "Tanzima Hashem"],
+  ["Member at Large", "Sanjida Islam Era"],
+  ["Member at Large", "Adiba Shaira"],
+  ["Member at Large", "Md Reaz Murshed Masud"],
+  ["Member at Large", "Md. Asif Haider"],
+  ["Member at Large", "Kazi Zaber"],
+  ["Member at Large", "Muhammad Sarwar Siddique"],
+  ["Member at Large", "Sadik Ahammed Siddique"],
 ] as const;
 
 export const committee = [

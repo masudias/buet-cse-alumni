@@ -15,3 +15,13 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 });
+
+describe("Site pages", () => {
+  const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+  it("has a meeting records page", () => {
+    expect(router.matchRoutes("/meetings").at(-1)?.routeId).toBe("/meetings");
+  });
+  it.each(["/portal", "/give", "/stories"])("no longer serves %s", (path) => {
+    expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(path);
+  });
+});

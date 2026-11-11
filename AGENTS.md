@@ -14,3 +14,5 @@
 - Import user-provided media through Lovable Assets pointers; retain a square raster favicon in public because browser icons require a directly served file.
 - Do not treat sample directory rows as verified alumni; replace them only after reading the supplied source lists and validating batch mappings.
 - Keep the uploaded alumni and representative datasets separate, preserving source HSC batch values and missing representatives, because the spreadsheets have different coverage; never infer contact or professional details.
+- Meeting agendas/minutes live as static files in public/meetings with metadata in src/lib/meetings.ts, so they download directly from the site and stay in the repository.
+- Only ship pages and buttons that lead to a working destination; remove inactive sections instead of showing placeholders.
