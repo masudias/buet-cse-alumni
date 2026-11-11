@@ -3,6 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
+import { NAV } from "@/lib/site";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -23,5 +24,9 @@ describe("Site pages", () => {
   });
   it.each(["/portal", "/give", "/stories"])("no longer serves %s", (path) => {
     expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(path);
+  });
+  it.each(["/meetings", "/research"])("keeps %s out of the menu but reachable by link", (path) => {
+    expect(NAV.some((n) => n.to === path)).toBe(false);
+    expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
   });
 });

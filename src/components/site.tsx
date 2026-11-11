@@ -52,10 +52,10 @@ export function Footer() {
           <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block break-all text-sm text-hero-accent">{CONTACT_EMAIL}</a>
         </div>
         <div className="grid gap-2 text-sm text-ink-foreground/70">
-          {NAV.slice(0, 4).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
+          {NAV.slice(0, 3).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
         </div>
         <div className="grid gap-2 text-sm text-ink-foreground/70">
-          {NAV.slice(4).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
+          {NAV.slice(3).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
         </div>
       </div>
       <div className="border-t border-ink-foreground/10 px-5 py-6 text-center font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} BUET CSE Alumni Association (BCA)</div>

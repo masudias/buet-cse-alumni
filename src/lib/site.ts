@@ -9,8 +9,6 @@ export const NAV = [
   { to: "/news", label: "News & Events" },
   { to: "/connect", label: "Community" },
   { to: "/careers", label: "Careers" },
-  { to: "/research", label: "Research" },
-  { to: "/meetings", label: "Meetings" },
 ] as const;
 
 export const executiveCommittee = [

@@ -13,15 +13,15 @@ import { Card, Section, meta } from "@/components/site";
 import { pastEvents } from "@/lib/announcements";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers, research and Executive Committee meeting records of BCA."),
+  head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers and community of BCA."),
   component: Index,
 });
 
 const pillars = [
   { to: "/directory", k: "01", t: "Member Directory", d: "Find classmates batch by batch, from 1986 onward." },
-  { to: "/careers", k: "02", t: "Careers & Mentoring", d: "Jobs, referrals, RA/TA and PhD openings, alumni mentors." },
+  { to: "/careers", k: "02", t: "Careers & Mentoring", d: "Jobs, referrals and alumni mentors." },
   { to: "/connect", k: "03", t: "Global Network", d: "Register, join the alumni group and follow department updates." },
-  { to: "/meetings", k: "04", t: "Meeting Records", d: "Agendas and minutes from the BCA Executive Committee." },
+  { to: "/news", k: "04", t: "News & Events", d: "Talks, seminars, reunions and department news." },
 ] as const;
 
 function Index() {
@@ -76,7 +76,7 @@ function Index() {
               ))}
             </div>
             <div className="rounded-lg bg-ink p-6 text-ink-foreground">
-              <p className="eyebrow">Upcoming</p>
+              <p className="eyebrow">Past events</p>
               <ul className="mt-4 divide-y divide-ink-foreground/10">
                 {pastEvents.slice(2).map((e) => (
                   <li key={e.title} className="py-4">

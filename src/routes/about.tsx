@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, meta } from "@/components/site";
-import { batchReps, committee, executiveCommittee, objectives, CONTACT_EMAIL, alumniEmail } from "@/lib/site";
+import { batchReps, committee, executiveCommittee, objectives, CONTACT_EMAIL } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   head: () => meta("About Us", "Mission, constitution, Executive Committee 2026–2028, interim committee and batch representatives of the BUET CSE Alumni Association."),
@@ -14,7 +14,7 @@ function About() {
       <Section eyebrow="Message from the Head" title="A vibrant, sustainable alumni association">
         <blockquote className="max-w-3xl border-l-2 border-accent pl-6 text-lg text-muted-foreground">
           "I sincerely request all alumni of the department to extend their cooperation and support to the interim committee. Your active engagement will be vital in shaping a vibrant and sustainable alumni association that reflects the pride, unity, and excellence of the BUET CSE community."
-          <footer className="mt-4 font-mono text-sm text-foreground">— Dr. Tanzima Hashem, Professor & Head, CSE, BUET</footer>
+          <footer className="mt-4 font-mono text-sm text-foreground">— Dr. Tanzima Hashem, Professor & Head, CSE, BUET · <a href="https://cse.buet.ac.bd/alumni" target="_blank" rel="noopener noreferrer" className="text-accent underline">Read the original message</a></footer>
         </blockquote>
       </Section>
       <section className="bg-surface">
@@ -38,11 +38,10 @@ function About() {
       <Section eyebrow="Executive Committee 2026–2028" title="Your elected BCA leadership">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {executiveCommittee.map(([role, name]) => (
-            <a key={name} href={alumniEmail(`Attention: ${name} (${role}), BCA Executive Committee`)} className="group rounded-lg border bg-card p-5 transition hover:border-accent">
+            <div key={name} className="rounded-lg border bg-card p-5">
               <p className="font-mono text-xs uppercase tracking-widest text-accent">{role}</p>
               <p className="mt-2 font-display text-lg font-semibold">{name}</p>
-              <p className="mt-3 text-sm text-muted-foreground group-hover:text-accent">Contact via BCA email →</p>
-            </a>
+            </div>
           ))}
         </div>
       </Section>
