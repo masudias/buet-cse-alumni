@@ -44,21 +44,19 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="bg-ink text-ink-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <a href="https://cse.buet.ac.bd/" target="_blank" rel="noopener noreferrer" className="mb-6 inline-block max-w-full rounded bg-card p-2"><img src={logo.url} alt="Department of Computer Science and Engineering, BUET" width={579} height={80} className="w-96 max-w-full" /></a>
-          <p className="font-display text-2xl font-semibold">BUET CSE Alumni Association (BCA)</p>
-          <p className="mt-3 max-w-md text-sm text-ink-foreground/60">Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka 1000.</p>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="mt-4 inline-block break-all text-sm text-hero-accent">{CONTACT_EMAIL}</a>
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <a href="https://cse.buet.ac.bd/" target="_blank" rel="noopener noreferrer" className="inline-block w-fit shrink-0 rounded bg-card p-1.5"><img src={logo.url} alt="Department of Computer Science and Engineering, BUET" width={579} height={80} className="w-52 max-w-full" /></a>
+          <div>
+            <p className="font-display font-semibold">BUET CSE Alumni Association (BCA)</p>
+            <p className="mt-1 text-sm text-ink-foreground/60">Dept. of CSE, BUET, Dhaka 1000 · <a href={`mailto:${CONTACT_EMAIL}`} className="break-all text-hero-accent hover:underline">{CONTACT_EMAIL}</a></p>
+          </div>
         </div>
-        <div className="grid gap-2 text-sm text-ink-foreground/70">
-          {NAV.slice(0, 3).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
-        </div>
-        <div className="grid gap-2 text-sm text-ink-foreground/70">
-          {NAV.slice(3).map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
-        </div>
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-foreground/70">
+          {NAV.map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
+        </nav>
       </div>
-      <div className="border-t border-ink-foreground/10 px-5 py-6 text-center font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} BUET CSE Alumni Association (BCA)</div>
+      <div className="border-t border-ink-foreground/10 px-5 py-4 text-center font-mono text-xs text-ink-foreground/40">© {new Date().getFullYear()} BUET CSE Alumni Association (BCA)</div>
     </footer>
   );
 }
@@ -80,9 +78,9 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, imagePosition
 
 export function Section({ eyebrow, title, children, className = "" }: { eyebrow?: string; title?: string; children: ReactNode; className?: string }) {
   return (
-    <section className={`mx-auto max-w-7xl px-5 py-16 md:py-20 ${className}`}>
+    <section className={`page-section mx-auto max-w-7xl px-5 py-12 md:py-16 ${className}`}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      {title && <h2 className="mt-3 mb-10 text-3xl font-semibold md:text-4xl">{title}</h2>}
+      {title && <h2 className={`${eyebrow ? "mt-3" : ""} mb-6 text-3xl font-semibold md:mb-8 md:text-4xl`}>{title}</h2>}
       {children}
     </section>
   );

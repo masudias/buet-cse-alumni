@@ -1,6 +1,3 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Card, Section, meta } from "@/components/site";
-import { alumniEmail } from "@/lib/site";
-import success from "@/assets/buet-cse-6.jpg.asset.json";
-export const Route=createFileRoute('/careers')({head:()=>meta('Careers & Mentoring','Alumni mentoring, job sharing and professional development for BUET CSE alumni.'),component:Careers});
-function Careers(){return <><section className="border-b bg-editorial"><div className="mx-auto max-w-7xl px-5 py-12"><p className="eyebrow">Careers & mentoring</p><h1 className="mt-4 max-w-3xl text-4xl font-semibold md:text-5xl">Your next chapter starts here.</h1><p className="mt-5 max-w-2xl text-lg text-muted-foreground">Opportunities, advice and practical support from the alumni community.</p><div className="mt-8 flex flex-wrap gap-6 text-sm font-semibold text-accent"><Link to="/news">Talks & workshops →</Link></div></div></section><Section><div className="grid gap-5 md:grid-cols-3"><a href={alumniEmail('Request for alumni mentoring')}><Card title="Alumni Mentoring" cta="Request a mentor">Ask for guidance from alumni in industry and academia.</Card></a><Link to="/news"><Card title="Professional Development" cta="See workshops">Explore the shared short course, seminars and technical lectures.</Card></Link><a href={alumniEmail('Share a job opportunity with BUET CSE alumni')}><Card title="Share a Job" cta="Email an opening">Send a role and application link to the association.</Card></a></div><img src={success.url} alt="BUET CSE students celebrating a programming championship" className="mt-10 max-h-[420px] w-full rounded-lg object-contain"/></Section></>}
+import { createFileRoute, redirect } from "@tanstack/react-router";
+// Merged into /networking; kept as a redirect so existing links still work.
+export const Route = createFileRoute("/careers")({ beforeLoad: () => { throw redirect({ to: "/networking" }); } });

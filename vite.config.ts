@@ -12,4 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      // Local dev only: Lovable-hosted assets (/__l5e/...) live in Lovable's cloud,
+      // so forward them to the published site. No effect on builds or Lovable hosting.
+      proxy: {
+        "/__l5e": { target: "https://buet-cse-alumni.lovable.app", changeOrigin: true },
+      },
+    },
+  },
 });

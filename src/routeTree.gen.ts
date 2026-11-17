@@ -15,6 +15,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as DirectoryRouteImport } from './routes/directory'
 import { Route as MeetingsRouteImport } from './routes/meetings'
+import { Route as NetworkingRouteImport } from './routes/networking'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
@@ -49,6 +50,11 @@ const MeetingsRoute = MeetingsRouteImport.update({
   path: '/meetings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NetworkingRoute = NetworkingRouteImport.update({
+  id: '/networking',
+  path: '/networking',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
   '/meetings': typeof MeetingsRoute
+  '/networking': typeof NetworkingRoute
   '/news': typeof NewsRoute
   '/research': typeof ResearchRoute
   '/volunteer': typeof VolunteerRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
   '/meetings': typeof MeetingsRoute
+  '/networking': typeof NetworkingRoute
   '/news': typeof NewsRoute
   '/research': typeof ResearchRoute
   '/volunteer': typeof VolunteerRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/connect': typeof ConnectRoute
   '/directory': typeof DirectoryRoute
   '/meetings': typeof MeetingsRoute
+  '/networking': typeof NetworkingRoute
   '/news': typeof NewsRoute
   '/research': typeof ResearchRoute
   '/volunteer': typeof VolunteerRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/directory'
     | '/meetings'
+    | '/networking'
     | '/news'
     | '/research'
     | '/volunteer'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/directory'
     | '/meetings'
+    | '/networking'
     | '/news'
     | '/research'
     | '/volunteer'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/directory'
     | '/meetings'
+    | '/networking'
     | '/news'
     | '/research'
     | '/volunteer'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   ConnectRoute: typeof ConnectRoute
   DirectoryRoute: typeof DirectoryRoute
   MeetingsRoute: typeof MeetingsRoute
+  NetworkingRoute: typeof NetworkingRoute
   NewsRoute: typeof NewsRoute
   ResearchRoute: typeof ResearchRoute
   VolunteerRoute: typeof VolunteerRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MeetingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/networking': {
+      id: '/networking'
+      path: '/networking'
+      fullPath: '/networking'
+      preLoaderRoute: typeof NetworkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news': {
       id: '/news'
       path: '/news'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConnectRoute: ConnectRoute,
   DirectoryRoute: DirectoryRoute,
   MeetingsRoute: MeetingsRoute,
+  NetworkingRoute: NetworkingRoute,
   NewsRoute: NewsRoute,
   ResearchRoute: ResearchRoute,
   VolunteerRoute: VolunteerRoute,

@@ -1,28 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroAsset from "@/assets/cse-buet-2.jpg.asset.json";
-import icpc from "@/assets/buet-cse-3.jpg.asset.json";
-import olympiad from "@/assets/buet-cse-4.jpeg.asset.json";
-import finals from "@/assets/buet-cse-10.jpg.asset.json";
 const hero = heroAsset.url;
-const gallery = [
-  [icpc.url, "BUET CSE team and guests on the ICPC Asia Dhaka Regional Contest stage", "On the world stage"],
-  [olympiad.url, "Students holding a Blockchain Olympiad award", "Blockchain Olympiad winners"],
-  [finals.url, "BUET CSE team with their mentor at the ICPC World Finals", "World Finals, together"],
-] as const;
 import { Card, Section, meta } from "@/components/site";
-import { pastEvents } from "@/lib/announcements";
+import { REGISTER_URL, alumniEmail } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => meta("Home", "The official home of BUET CSE alumni worldwide — directory, news, careers and community of BCA."),
   component: Index,
 });
 
-const pillars = [
-  { to: "/directory", k: "01", t: "Member Directory", d: "Find classmates batch by batch, from 1986 onward." },
-  { to: "/careers", k: "02", t: "Careers & Mentoring", d: "Jobs, referrals and alumni mentors." },
-  { to: "/connect", k: "03", t: "Global Network", d: "Register, join the alumni group and follow department updates." },
-  { to: "/news", k: "04", t: "News & Events", d: "Talks, seminars, reunions and department news." },
-] as const;
+const actions = [
+  { title: "Global Alumni Network", cta: "Register", d: "Stay connected with fellow alumni and contribute your information to the global network.", url: REGISTER_URL },
+  { title: "Ask for a Referral", cta: "Request a referral", d: "Ask the association to connect you with a fellow alumnus in industry or academia.", url: alumniEmail("Request for a fellow alumni referral") },
+];
 
 function Index() {
   return (
@@ -37,7 +27,7 @@ function Index() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association (BCA) connects graduates across generations and continents — and back to the department that shaped us.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/connect" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">Join the network</Link>
+            <Link to="/networking" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">Join the network</Link>
             <Link to="/about" className="rounded-md border border-ink-foreground/25 px-6 py-3 font-semibold hover:border-primary hover:text-primary">About BCA</Link>
           </div>
           <dl className="mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-ink-foreground/15 pt-6">
@@ -49,60 +39,26 @@ function Index() {
       </section>
 
       <Section eyebrow="What we do" title="Built for a lifetime of connection">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((p) => (
-            <Link key={p.to} to={p.to}><Card kicker={p.k} title={p.t} cta="Explore">{p.d}</Card></Link>
+        <p className="mb-8 max-w-3xl text-lg text-muted-foreground">Whether you graduated last year or decades ago, there's a place for you here and someone ready to help.</p>
+        <div className="grid gap-5 md:grid-cols-2">
+          {actions.map((a) => (
+            <a key={a.title} className="grid" href={a.url} target={a.url.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer"><Card title={a.title} cta={a.cta}>{a.d}</Card></a>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Pride of CSE" title="Our students and alumni, winning together">
-        <div id="pride" className="grid scroll-mt-32 gap-4 grid-cols-1 sm:grid-cols-3">
-          {gallery.map(([src, alt, cap]) => (
-            <figure key={cap} className="overflow-hidden rounded-lg border bg-card">
-              <img src={src} alt={alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
-              <figcaption className="p-4 font-display font-semibold">{cap}</figcaption>
-            </figure>
-          ))}
+      <Section title="Membership">
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="rounded-lg border bg-card p-6"><h3 className="text-xl font-semibold">Regular members</h3><p className="mt-2 text-muted-foreground">All Bachelor, Masters and Doctoral graduates of CSE, BUET are eligible, subject to accepting the terms and paying the membership fee.</p></div>
+          <div className="rounded-lg border bg-card p-6"><h3 className="text-xl font-semibold">Honorary members</h3><p className="mt-2 text-muted-foreground">Past and present full-time CSE faculty, and individuals recognized by the Executive Committee. No fee, no voting rights.</p></div>
         </div>
       </Section>
 
-      <section className="bg-surface">
-        <Section eyebrow="Latest" title="News & Events">
-          <div className="grid gap-10 lg:grid-cols-3">
-            <div className="grid gap-5 lg:col-span-2 md:grid-cols-2">
-              {pastEvents.slice(0, 2).map((n) => (
-                <Card key={n.title} kicker={n.date} title={n.title}>{n.details[0]}</Card>
-              ))}
-            </div>
-            <div className="rounded-lg bg-ink p-6 text-ink-foreground">
-              <p className="eyebrow">Past events</p>
-              <ul className="mt-4 divide-y divide-ink-foreground/10">
-                {pastEvents.slice(2).map((e) => (
-                  <li key={e.title} className="py-4">
-                    <p className="font-mono text-xs text-primary">{e.date}</p>
-                    <p className="mt-1 font-display font-semibold">{e.title}</p>
-                    <p className="text-sm text-ink-foreground/60">{e.place}</p>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/news" className="mt-2 inline-block font-mono text-xs uppercase tracking-widest text-primary">All events →</Link>
-            </div>
-          </div>
-        </Section>
-      </section>
-
-      <Section>
-        <div className="grid items-center gap-10 rounded-xl bg-ink p-10 text-ink-foreground md:grid-cols-2 md:p-14">
-          <div>
-            <p className="eyebrow">1st BCA Election 2026</p>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Help build the voter list and alumni database.</h2>
-          </div>
-          <div>
-            <p className="text-ink-foreground/70">Representatives from every graduated batch are collecting alumni information. Submit yours so you can vote and stay connected.</p>
-            <Link to="/about" className="mt-6 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground">Find your batch rep</Link>
-          </div>
-        </div>
+      <Section eyebrow="Message from the Head" title="A vibrant, sustainable alumni association">
+        <blockquote className="max-w-3xl border-l-2 border-accent pl-6 text-lg text-muted-foreground">
+          "I sincerely request all alumni of the department to extend their cooperation and support to the interim committee. Your active engagement will be vital in shaping a vibrant and sustainable alumni association that reflects the pride, unity, and excellence of the BUET CSE community."
+          <footer className="mt-4 font-mono text-sm text-foreground">— Dr. Tanzima Hashem, Professor & Head, CSE, BUET · <a href="https://cse.buet.ac.bd/alumni" target="_blank" rel="noopener noreferrer" className="text-accent underline">Read the original message</a></footer>
+        </blockquote>
       </Section>
     </>
   );

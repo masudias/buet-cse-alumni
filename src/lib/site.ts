@@ -7,8 +7,7 @@ export const NAV = [
   { to: "/about", label: "About" },
   { to: "/directory", label: "Directory" },
   { to: "/news", label: "News & Events" },
-  { to: "/connect", label: "Community" },
-  { to: "/careers", label: "Careers" },
+  { to: "/networking", label: "Networking" },
 ] as const;
 
 export const executiveCommittee = [

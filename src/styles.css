@@ -102,3 +102,6 @@
     linear-gradient(90deg, color-mix(in oklab, var(--ink-foreground) 6%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* Back-to-back sections on the same background share one gap instead of doubling it. */
+.page-section + .page-section { padding-top: 0; }
