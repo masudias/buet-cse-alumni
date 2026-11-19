@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, meta } from "@/components/site";
-import { committee, executiveCommittee, objectives } from "@/lib/site";
+import { committee, electionCommission, executiveCommittee, objectives } from "@/lib/site";
 
-// Headshots cropped from the official Executive Committee 2026–2028 poster, named by slugified member name.
-const photos = import.meta.glob<string>("../assets/committee/*.jpg", { eager: true, import: "default" });
-const committeePhoto = (name: string) =>
-  photos[`../assets/committee/${name.toLowerCase().replace(/\./g, "").trim().replace(/\s+/g, "-")}.jpg`];
+// Headshots cropped from the official Executive Committee and Election Commission posters, named by slugified name.
+const photos = import.meta.glob<string>("../assets/{committee,election}/*.jpg", { eager: true, import: "default" });
+const slug = (name: string) => name.toLowerCase().replace(/\./g, "").trim().replace(/\s+/g, "-");
+const committeePhoto = (name: string) => photos[`../assets/committee/${slug(name)}.jpg`];
+const electionPhoto = (name: string) => photos[`../assets/election/${slug(name)}.jpg`];
 
 export const Route = createFileRoute("/about")({
   head: () => meta("About Us", "Mission, constitution, Executive Committee 2026–2028, interim committee and batch representatives of the BUET CSE Alumni Association."),
@@ -51,14 +52,32 @@ function About() {
         </div>
       </Section>
       <section className="bg-surface">
-        <Section eyebrow="Past interim committee" title="The people who did the groundwork">
+        <Section eyebrow="2026 Election Commission" title="Election Commissioners of 2026">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {committee.map(([n, r]) => (
-              <div key={n} className="rounded-lg border bg-card p-5"><p className="font-display font-semibold">{n}</p><p className="mt-1 text-sm text-muted-foreground">{r}</p></div>
-            ))}
+            {electionCommission.map(([role, name, affiliation, hsc]) => {
+              const photo = electionPhoto(name);
+              return (
+                <div key={name} className="flex items-center gap-4 rounded-lg border bg-card p-5">
+                  {photo && <img src={photo} alt={`Portrait of ${name}`} width={96} height={96} loading="lazy" className="size-20 shrink-0 rounded-md border object-cover md:size-24" />}
+                  <div className="min-w-0">
+                    <p className="font-mono text-xs uppercase tracking-widest text-accent">{role}</p>
+                    <p className="mt-2 font-display text-lg font-semibold">{name}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{affiliation}</p>
+                    <p className="mt-1 font-mono text-xs text-muted-foreground">HSC {hsc}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </Section>
       </section>
+      <Section eyebrow="Past interim committee" title="The people who did the groundwork">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {committee.map(([n, r]) => (
+            <div key={n} className="rounded-lg border bg-card p-5"><p className="font-display font-semibold">{n}</p><p className="mt-1 text-sm text-muted-foreground">{r}</p></div>
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

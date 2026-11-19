@@ -10,6 +10,17 @@ export const NAV = [
   { to: "/networking", label: "Networking" },
 ] as const;
 
+// 2026 Election Commission: [role, name, affiliation, HSC year].
+export const electionCommission = [
+  ["Chief Election Commissioner", "Mahmuda Naznin", "Professor, CSE Department, BUET, Bangladesh", 1989],
+  ["Election Commissioner", "Manzur Murshed", "Professor, CS Department, Deakin University, Australia", 1987],
+  ["Election Commissioner", "Humayun Kabir", "Professor, CS Department, Vancouver Island University, Canada; Professor (retired), CSE, BUET", 1986],
+  ["Election Commissioner", "Sukarna Barua", "Associate Professor, CSE Department, BUET, Bangladesh", 2003],
+  ["Election Commissioner", "Rezwana Reaz", "Associate Professor, CSE Department, BUET, Bangladesh", 2005],
+  ["Election Commissioner", "Novia Nurain", "Assistant Professor, CSE Department, BUET, Bangladesh", 2005],
+  ["Election Commissioner", "Junaed Younus Khan", "Assistant Professor, CSE Department, BUET, Bangladesh", 2014],
+] as const;
+
 export const executiveCommittee = [
   ["President", "Mohammad Zulkernine"],
   ["Vice President", "Badrul Munir Sarwar"],
