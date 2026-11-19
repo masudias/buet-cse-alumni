@@ -18,7 +18,7 @@ function News() {
         <div className="gap-5 md:columns-2">
           {pastEvents.map((e) => (
             <div key={e.title} className="mb-5 break-inside-avoid">
-              <AnnouncementCard post={e} when={`${e.date} · ${e.place}`} />
+              <AnnouncementCard post={e} when={e.date} where={e.place} />
             </div>
           ))}
         </div>

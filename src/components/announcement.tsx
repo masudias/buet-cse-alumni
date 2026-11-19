@@ -1,9 +1,9 @@
 import type { Announcement } from "@/lib/announcements";
 import { ArrowUpRight } from "lucide-react";
 
-export function AnnouncementCard({ post, when }: { post: Announcement; when?: string }) {
+export function AnnouncementCard({ post, when, where }: { post: Announcement; when?: string; where?: string }) {
   return <article className="flex h-full flex-col rounded-lg border bg-card p-6">
-    {when && <p className="mb-3 border-b pb-3 font-mono text-xs text-accent">{when}</p>}
+    {(when || where) && <div className="mb-3 space-y-1 border-b pb-3 font-mono text-xs text-accent">{when && <p>{when}</p>}{where && <p className="text-muted-foreground">{where}</p>}</div>}
     <p className="text-xs font-medium text-accent">{post.label}</p>
     <h3 className="mt-3 text-xl font-semibold">{post.title}</h3>
     <div className="mt-4 flex-1 space-y-3 text-sm leading-relaxed text-muted-foreground">{post.details.map((p) => <p key={p}>{p}</p>)}</div>

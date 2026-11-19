@@ -89,16 +89,10 @@ export const benefits: Announcement[] = [
 
 export const pastEvents: (Announcement & { date: string; place: string })[] = [
   {
-    title: "ACM Chapter Khan–Bose Talk · Professor Latifur Khan",
-    label: "BUET ACM Chapter · Past event", date: "5 October 2026 · 12 PM", place: "Graduate Seminar Room, ECE 503, BUET",
-    details: ["Professor Latifur Khan, Department of Computer Science, UT Dallas, Fellow of IEEE, AAAS, IET and BCS, was announced as the speaker for the Khan–Bose talk.", "Organized by the BUET ACM Chapter, Department of CSE, BUET, for interested students and faculty."],
-    url: "https://www.facebook.com/100063546434759/posts/1731169122344619/?mibextid=rS40aB7S9Ucbxw6v", action: "View event announcement",
-  },
-  {
-    title: "AI and Society · Three-day short course",
-    label: "North South University · Past event", date: "30 September–2 October 2026", place: "North South University",
-    details: ["Professor Mor Naaman of Cornell Tech led a course on interactions between artificial intelligence, technology and society, organized by NSU's Department of ECE with the NSU ACM Student Chapter.", "Registration fee: BDT 1,500 for the full three-day course. Completion certificates, lunch and snacks were included for participants completing all modules.", "Pre-registration closed at 11:59 PM on 26 September 2026. Pre-registration did not guarantee participation; selected applicants were to receive final instructions separately."],
-    url: "https://docs.google.com/forms/d/e/1FAIpQLScLuFXH6KeSvWeqecLGYSh4gf25b1I3Pm2knNjWVpSrnsmhgw/viewform?pli=1", action: "Original pre-registration form",
+    title: "BUET Alumni AGM & Get Together · Canada",
+    label: "BUET Alumni Association, Canada · Upcoming event", date: "22 November 2026 · 6:00–11:50 PM EST", place: "BD Fusion Restaurant, 3478 Danforth Ave, Scarborough, ON M1L 1E3, Canada",
+    details: ["Join BUET Alumni Association Canada for an evening of connection and community at its AGM & Get Together. Catch up with old friends, meet fellow alumni, and share your talent at BUET Got Talent (Open Mic).", "General admission tickets are CAD 30, with up to 10% off for BAAC members at checkout."],
+    url: "https://www.buetalumni.ca/event-details/buet-alumni-agm-get-together-2", action: "Get tickets",
   },
   {
     title: "BUET Reunion UK 2026",
@@ -107,15 +101,15 @@ export const pastEvents: (Announcement & { date: string; place: string })[] = [
     url: "https://buetalumni.co.uk", action: "Visit UK alumni website",
   },
   {
+    title: "ACM Chapter Khan–Bose Talk · Professor Latifur Khan",
+    label: "BUET ACM Chapter · Past event", date: "5 October 2026 · 12 PM", place: "Graduate Seminar Room, ECE 503, BUET",
+    details: ["Professor Latifur Khan, Department of Computer Science, UT Dallas, Fellow of IEEE, AAAS, IET and BCS, was announced as the speaker for the Khan–Bose talk.", "Organized by the BUET ACM Chapter, Department of CSE, BUET, for interested students and faculty."],
+    url: "https://www.facebook.com/100063546434759/posts/1731169122344619/?mibextid=rS40aB7S9Ucbxw6v", action: "View event announcement",
+  },
+  {
     title: "When Software Artifacts Disagree",
     label: "BUET ACM Chapter · Past event", date: "8 August 2026 · 2:30 PM", place: "Graduate Seminar Room, ECE 503, CSE, BUET",
     details: ["Speaker: Zahin Wahab, PhD student in Computer Science at the University of British Columbia and Lecturer at BRAC University.", "The seminar examined how inconsistencies arise between software implementations, programming-language interpreters, code and documentation—even when a program produces plausible outputs rather than obvious crashes. Organized by BUET ACM Chapter, CSE, BUET."],
     url: "https://www.facebook.com/csebuet", action: "Visit department announcements",
-  },
-  {
-    title: "Generative AI & LLMs for Cybersecurity and Political Science",
-    label: "BCS International Lecture Series · 03 · Past event", date: "3 August 2026 · 9:30 PM BST (UTC+6)", place: "Online · Zoom",
-    details: ["Professor Latifur Khan, UT Dallas, Fellow of IEEE, AAAS, IET and BCS, delivered the announced online lecture.", "Organized by Bangladesh Computer Society with the Center for Intelligent Computing. Academics, researchers, students, IT professionals and policymakers were welcome; no registration was required.", "Original Zoom meeting ID: 959 9525 5962."],
-    url: "https://bdren.zoom.us/j/95995255962", action: "Original Zoom link",
   },
 ];
