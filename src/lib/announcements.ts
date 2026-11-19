@@ -95,21 +95,27 @@ export const pastEvents: (Announcement & { date: string; place: string })[] = [
     url: "https://www.buetalumni.ca/event-details/buet-alumni-agm-get-together-2", action: "Get tickets",
   },
   {
+    title: "BUET 150 Years · 14th Grand Reunion",
+    label: "BUET Alumni · Upcoming event", date: "6–10 January 2027", place: "BUET Playground, Palashi, Dhaka",
+    details: ["Celebrating 150 years of engineering excellence (1876–2026): a historic gathering of BUET graduates across generations, honouring the 50-year (Golden) and 30-year (Pearl) batches.", "Registration for BUET alumni members is TK 2,000, including lunch, materials and a polo T-shirt, with optional add-ons for family, guests and dinners. Register early to secure a digital pass."],
+    url: "https://buet150years.org/registration", action: "Register for the reunion",
+  },
+  {
+    title: "BUETAA Day 2026",
+    label: "BUET Alumni Australia · Past event", date: "Sunday, 15 November 2026", place: "Skyview Reception Function Center, Liverpool, Sydney",
+    details: ["BUET Alumni Australia's community day for alumni and their families. BUETAA also runs dinners, sports days such as its annual badminton tournament, and other gatherings across Australia."],
+    url: "https://www.buetalumniaustralia.com/events", action: "Visit BUET Alumni Australia",
+  },
+  {
+    title: "Career Development Workshop 2026 · Calgary",
+    label: "BUETian Alumni Association of Calgary · Past event", date: "Friday, 23 October 2026 · 5:00 PM", place: "Hunter Student Commons, University of Calgary",
+    details: ["The Calgary association's yearly career workshop, offering practical career guidance and networking for BUET alumni and job seekers in engineering fields."],
+    url: "https://www.buetalumnicalgary.com/events", action: "Visit BUET Alumni Calgary",
+  },
+  {
     title: "BUET Reunion UK 2026",
     label: "Alumni & families · Past event", date: "26 September 2026 · 12:30–8:30 PM", place: "Sindlesham Court, Wokingham, RG41 5EA, UK",
     details: ["BUET alumni living in or visiting the UK and their families were invited to reconnect with friends, meet fellow BUETians and create new memories in Reading."],
     url: "https://buetalumni.co.uk", action: "Visit UK alumni website",
-  },
-  {
-    title: "ACM Chapter Khan–Bose Talk · Professor Latifur Khan",
-    label: "BUET ACM Chapter · Past event", date: "5 October 2026 · 12 PM", place: "Graduate Seminar Room, ECE 503, BUET",
-    details: ["Professor Latifur Khan, Department of Computer Science, UT Dallas, Fellow of IEEE, AAAS, IET and BCS, was announced as the speaker for the Khan–Bose talk.", "Organized by the BUET ACM Chapter, Department of CSE, BUET, for interested students and faculty."],
-    url: "https://www.facebook.com/100063546434759/posts/1731169122344619/?mibextid=rS40aB7S9Ucbxw6v", action: "View event announcement",
-  },
-  {
-    title: "When Software Artifacts Disagree",
-    label: "BUET ACM Chapter · Past event", date: "8 August 2026 · 2:30 PM", place: "Graduate Seminar Room, ECE 503, CSE, BUET",
-    details: ["Speaker: Zahin Wahab, PhD student in Computer Science at the University of British Columbia and Lecturer at BRAC University.", "The seminar examined how inconsistencies arise between software implementations, programming-language interpreters, code and documentation—even when a program produces plausible outputs rather than obvious crashes. Organized by BUET ACM Chapter, CSE, BUET."],
-    url: "https://www.facebook.com/csebuet", action: "Visit department announcements",
   },
 ];
