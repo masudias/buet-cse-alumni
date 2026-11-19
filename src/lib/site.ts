@@ -5,7 +5,7 @@ export const alumniEmail = (subject: string) => `mailto:${CONTACT_EMAIL}?subject
 
 export const NAV = [
   { to: "/about", label: "About" },
-  { to: "/directory", label: "Directory" },
+  { to: "/directory", label: "Alumni Directory" },
   { to: "/news", label: "News & Events" },
   { to: "/networking", label: "Networking" },
 ] as const;

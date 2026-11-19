@@ -9,7 +9,7 @@ export const Route = createFileRoute("/networking")({
 });
 
 const careerActions = [
-  { title: "Global Alumni Network", cta: "Register", d: "Stay connected with fellow alumni and contribute your information to the global network.", url: REGISTER_URL },
+  { title: "Join Global Alumni Network", cta: "Register", d: "Stay connected with fellow alumni and contribute your information to the global network.", url: REGISTER_URL },
   { title: "Alumni Mentoring", cta: "Request a mentor", d: "Ask for guidance from alumni in industry and academia.", url: alumniEmail("Request for alumni mentoring") },
   { title: "Share a Job", cta: "Email an opening", d: "Send a role and application link to the association.", url: alumniEmail("Share a job opportunity with BUET CSE alumni") },
 ];

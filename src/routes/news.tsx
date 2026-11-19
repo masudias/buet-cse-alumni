@@ -13,7 +13,7 @@ function News() {
   return (
     <>
       <PageHero tall image={newsCover} imagePosition="object-center" imageAlt="BUET CSE students gathered together at a department celebration" eyebrow="News & Events" title="What's happening across the network" intro="Talks, seminars, courses and reunions shared with BUET CSE alumni." />
-      <Section eyebrow="Recent" title="Events">
+      <Section>
         {/* Newspaper-style: two columns, each story keeps its natural height. */}
         <div className="gap-5 md:columns-2">
           {pastEvents.map((e) => (

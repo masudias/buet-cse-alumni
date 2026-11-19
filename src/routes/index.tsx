@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 });
 
 const actions = [
-  { title: "Global Alumni Network", cta: "Register", d: "Stay connected with fellow alumni and contribute your information to the global network.", url: REGISTER_URL },
+  { title: "Join Global Alumni Network", cta: "Register", d: "Stay connected with fellow alumni and contribute your information to the global network.", url: REGISTER_URL },
   { title: "Ask for a Referral", cta: "Request a referral", d: "Ask the association to connect you with a fellow alumnus in industry or academia.", url: alumniEmail("Request for a fellow alumni referral") },
 ];
 
@@ -27,8 +27,8 @@ function Index() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">The BUET CSE Alumni Association (BCA) connects graduates across generations and continents — and back to the department that shaped us.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/networking" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">Join the network</Link>
-            <Link to="/about" className="rounded-md border border-ink-foreground/25 px-6 py-3 font-semibold hover:border-primary hover:text-primary">About BCA</Link>
+            <Link to="/about" className="rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90">About BCA</Link>
+            <Link to="/networking" className="rounded-md border border-ink-foreground/25 px-6 py-3 font-semibold hover:border-primary hover:text-primary">Join the network</Link>
           </div>
           <dl className="mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-ink-foreground/15 pt-6">
             {[["34+", "Graduated batches"], ["17", "Executive committee"], ["5", "Continents"]].map(([n, l]) => (
